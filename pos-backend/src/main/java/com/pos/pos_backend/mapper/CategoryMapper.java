@@ -8,7 +8,8 @@ public class CategoryMapper {
         return new CategoryDto(
                 category.getId(),
                 category.getName(),
-                category.getDescription()
+                category.getDescription(),
+                category.getImage()
         );
     }
 
@@ -16,7 +17,8 @@ public class CategoryMapper {
         return new Category(
                 categoryDto.getId(),
                 categoryDto.getName(),
-                categoryDto.getDescription()
+                categoryDto.getDescription(),
+                categoryDto.getImage()
         );
     }
 }
