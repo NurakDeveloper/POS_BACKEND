@@ -17,26 +17,28 @@ import java.util.Date;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id ;
-    private Long createdBy ;
-    private Long updatedBy ;
-    private Long categoryId;
-    private Long branchId ;
-    private Long productCode ;
-    private String productName ;
-    private Double price ;
-    private String prepareTime ;
-    private String description ;
+    private Long id;
+
+    private Long createdBy;
+    private Long updatedBy;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category; // Many products belong to one category
+
+    private Long branchId;
+    private Long productCode;
+    private String productName;
+    private Double price;
+    private String prepareTime;
+    private String description;
     private Integer calories;
-    private Integer status ;
+    private Integer status;
     private String productOrigin;
     private Integer sugar;
-    private String image ;
-    private Integer maxOrderQty ;
-    private Integer minOrderQty ;
-    private Date createdDate ;
-    private Date updatedDate ;
-
-
-
+    private String image;
+    private Integer maxOrderQty;
+    private Integer minOrderQty;
+    private Date createdDate;
+    private Date updatedDate;
 }
