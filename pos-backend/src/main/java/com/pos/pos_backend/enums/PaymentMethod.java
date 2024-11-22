@@ -1,4 +1,4 @@
-package com.pos.pos_backend.model;
+package com.pos.pos_backend.enums;
 
 public enum PaymentMethod {
     CASH,

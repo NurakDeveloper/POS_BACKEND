@@ -23,4 +23,16 @@ public class Category {
 
     @Column
     private String description;
+
+    private String image;
+
+    // Constructor, other fields, and methods
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
