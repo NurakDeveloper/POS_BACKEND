@@ -37,6 +37,16 @@ public class PaymentImpl implements PaymentService {
     }
 
     @Override
+    public PaymentDto createPayment(PaymentDto paymentDto) {
+        Payment payment = PaymentMapper.mapToPayment(paymentDto);
+        Order order = orderRepository.findById(paymentDto.getOrderId())
+                .orElseThrow(() -> new RuntimeException("Order not found with ID: " + paymentDto.getOrderId()));
+        payment.setOrder(order);
+        Payment savePayment = paymentRepository.save(payment);
+        return PaymentMapper.mapToPaymentDto(savePayment);
+    }
+
+    @Override
     public List<PaymentDto> getPaymentsByOrderId(Long orderId) {
         List<Payment> payments = paymentRepository.findByOrderId(orderId);
         return payments.stream()

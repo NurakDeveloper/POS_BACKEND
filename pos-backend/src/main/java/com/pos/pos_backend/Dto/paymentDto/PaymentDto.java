@@ -17,7 +17,6 @@ import java.util.Date;
 public class PaymentDto {
     private Long id;
 
-    @NotNull(message = "Order ID cannot be null")
     private Long orderId;
 
     @NotNull(message = "Payment amount is required")
