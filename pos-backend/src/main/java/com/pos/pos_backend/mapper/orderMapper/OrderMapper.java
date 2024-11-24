@@ -1,11 +1,15 @@
 package com.pos.pos_backend.mapper.orderMapper;
 
 import com.pos.pos_backend.Dto.orderDto.OrderDto;
+import com.pos.pos_backend.Dto.orderDto.OrderLineDto;
+import com.pos.pos_backend.Dto.orderDto.OrderRequest;
 import com.pos.pos_backend.Dto.paymentDto.PaymentDto;
 import com.pos.pos_backend.enums.PaymentStatus;
 import com.pos.pos_backend.mapper.paymentMapper.PaymentMapper;
 import com.pos.pos_backend.model.order.Order;
+import com.pos.pos_backend.model.order.OrderLine;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class OrderMapper {
@@ -50,5 +54,47 @@ public class OrderMapper {
         order.setPaymentStatus(orderDto.getPaymentStatus() != null ?
                 PaymentStatus.valueOf(orderDto.getPaymentStatus()) : PaymentStatus.PENDING);
         return order;
+    }
+    public static Order toOrder(OrderRequest orderRequest){
+        return new Order(
+                orderRequest.getId(),
+                orderRequest.getCustomerId(),
+                orderRequest.getInvoiceNumber(),
+                orderRequest.getOrderType(),
+                orderRequest.getAcceptedBy(),
+                orderRequest.getTableNumber(),
+                orderRequest.getStatus(),
+                orderRequest.getNumberOfPeople(),
+                orderRequest.getTotalAmount(),
+                orderRequest.getCash(),
+                orderRequest.getExchange(),
+                orderRequest.getOrderDate(),
+                orderRequest.getDescription(),
+                orderRequest.getPaymentStatus() != null ?
+                        PaymentStatus.valueOf(orderRequest.getPaymentStatus()) : PaymentStatus.PENDING
+
+        );
+    }
+
+    public static OrderRequest toRequest(Order order , List<OrderLineDto> orderLineDto){
+        return new OrderRequest(
+                order.getId(),
+                order.getCustomerId(),
+                order.getInvoiceNumber(),
+                order.getOrderType(),
+                order.getAcceptedBy(),
+                order.getTableNumber(),
+                order.getStatus(),
+                order.getNumberOfPeople(),
+                order.getTotalAmount(),
+                order.getCash(),
+                order.getExchange(),
+                order.getOrderDate(),
+                order.getDescription(),
+                "PENDING",
+                orderLineDto
+
+
+        );
     }
 }

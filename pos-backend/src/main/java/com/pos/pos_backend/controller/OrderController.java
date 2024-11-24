@@ -2,8 +2,10 @@ package com.pos.pos_backend.controller;
 
 import com.pos.pos_backend.Dto.PaymentRequest;
 import com.pos.pos_backend.Dto.orderDto.OrderDto;
+import com.pos.pos_backend.Dto.orderDto.OrderRequest;
 import com.pos.pos_backend.enums.PaymentStatus;
 import com.pos.pos_backend.service.OrderService;
+import com.pos.pos_backend.service.OrderServiceMulti;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,11 +20,18 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderController {
     private final OrderService orderService;
+    private final OrderServiceMulti orderServiceMulti;
 
     @PostMapping("create")
     public ResponseEntity<OrderDto> createOrder(@RequestBody OrderDto orderDto){
         OrderDto order = orderService.createOrder(orderDto);
         return new ResponseEntity<>(order, HttpStatus.CREATED);
+    }
+
+    @PostMapping("post")
+    public ResponseEntity<OrderRequest> postOrder(@RequestBody OrderRequest orderRequest){
+        OrderRequest orderRequest1 = orderServiceMulti.orderRequest(orderRequest);
+        return new ResponseEntity<>(orderRequest1,HttpStatus.CREATED);
     }
     @GetMapping("total-order")
     public Double getTotalToday(){

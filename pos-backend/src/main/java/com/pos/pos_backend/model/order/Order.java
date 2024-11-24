@@ -16,12 +16,48 @@ import java.util.List;
 @Table(name = "orders")
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    public Order(Long id, Long invoiceNumber, Long orderType, Long customerId, Long acceptedBy, Integer tableNumber, Integer status, Integer numberOfPeople, Double totalAmount, Double cash, Double exchange, Date orderDate, String description, List<Payment> payments, PaymentStatus paymentStatus) {
+        this.id = id;
+        this.invoiceNumber = invoiceNumber;
+        this.orderType = orderType;
+        this.customerId = customerId;
+        this.acceptedBy = acceptedBy;
+        this.tableNumber = tableNumber;
+        this.status = status;
+        this.numberOfPeople = numberOfPeople;
+        this.totalAmount = totalAmount;
+        this.cash = cash;
+        this.exchange = exchange;
+        this.orderDate = orderDate;
+        this.description = description;
+        this.payments = payments;
+        this.paymentStatus = paymentStatus;
+    }
+
+    public Order(){
+
+    }
+    public Order(Long id, Long invoiceNumber, Long orderType, Long customerId, Long acceptedBy, Integer tableNumber, Integer status, Integer numberOfPeople, Double totalAmount, Double cash, Double exchange, Date orderDate, String description, PaymentStatus paymentStatus) {
+        this.id = id;
+        this.invoiceNumber = invoiceNumber;
+        this.orderType = orderType;
+        this.customerId = customerId;
+        this.acceptedBy = acceptedBy;
+        this.tableNumber = tableNumber;
+        this.status = status;
+        this.numberOfPeople = numberOfPeople;
+        this.totalAmount = totalAmount;
+        this.cash = cash;
+        this.exchange = exchange;
+        this.orderDate = orderDate;
+        this.description = description;
+        this.paymentStatus = paymentStatus;
+    }
 
     private Long invoiceNumber;
     private Long orderType;
