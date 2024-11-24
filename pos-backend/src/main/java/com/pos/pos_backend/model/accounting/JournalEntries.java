@@ -1,5 +1,6 @@
 package com.pos.pos_backend.model.accounting;
 
+import com.pos.pos_backend.Dto.accounting.ExpenseReport;
 import com.pos.pos_backend.Dto.accounting.JournalDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,6 +25,17 @@ import java.util.Date;
                         @ColumnResult(name = "accountName", type = String.class),
                         @ColumnResult(name = "totalDebit", type = Double.class),
                         @ColumnResult(name = "totalCredit", type = Double.class)
+                }
+        )
+)
+@SqlResultSetMapping(
+        name = "expenseMapping",
+        classes = @ConstructorResult(
+                targetClass = ExpenseReport.class,
+                columns = {
+                        @ColumnResult(name = "datejournal", type = String.class),
+                        @ColumnResult(name = "totalExpense", type = Double.class),
+                        @ColumnResult(name = "reference", type = String.class),
                 }
         )
 )

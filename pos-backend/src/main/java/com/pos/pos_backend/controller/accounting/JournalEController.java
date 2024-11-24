@@ -1,6 +1,7 @@
 package com.pos.pos_backend.controller.accounting;
 
 import com.pos.pos_backend.Dto.DateFilter;
+import com.pos.pos_backend.Dto.accounting.ExpenseReport;
 import com.pos.pos_backend.Dto.accounting.JournalDetailResponse;
 import com.pos.pos_backend.Dto.accounting.JournalDto;
 import com.pos.pos_backend.Dto.accounting.JournalEntriesDto;
@@ -37,5 +38,9 @@ public class JournalEController {
     @PostMapping("fetch-journal")
     public ResponseEntity<List<JournalDto>> getAllJournals(@RequestBody DateFilter dateFilter) {
         return ResponseEntity.ok(customizeRepoJournal.getAllJournalEntries(dateFilter));
+    }
+    @PostMapping("report-expense")
+    public ResponseEntity<List<ExpenseReport>> getTotalExpenseReport(@RequestBody DateFilter dateFilter) {
+        return ResponseEntity.ok(customizeRepoJournal.getTotalExpenseReport(dateFilter));
     }
 }
