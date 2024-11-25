@@ -29,11 +29,12 @@ public class OrderController {
     }
 
     // CREATE Order with OrderLine
-    @PostMapping("post")
+    @PostMapping("post-multiple-items")
     public ResponseEntity<OrderRequest> postOrder(@RequestBody OrderRequest orderRequest){
         OrderRequest orderRequest1 = orderServiceMulti.orderRequest(orderRequest);
         return new ResponseEntity<>(orderRequest1,HttpStatus.CREATED);
     }
+
     @GetMapping("total-order")
     public Double getTotalToday(){
         return orderService.totalOrderToday(new Date());
@@ -46,6 +47,18 @@ public class OrderController {
     public ResponseEntity<OrderDto> getOrderById(@PathVariable("id") Long orderId){
         return ResponseEntity.ok(orderService.getOrderByID(orderId));
     }
+
+    // Add items and update the order (adjust order items if needed)
+//    @PutMapping("update-order/{orderId}")
+//    public ResponseEntity<OrderDto> updateOrder(
+//            @PathVariable("orderId") Long orderId,
+//
+//    ) {
+//        OrderDto updatedOrder = orderService.updateOrder(orderId, orderRequest);
+//        return ResponseEntity.ok(updatedOrder);
+//    }
+
+
     @PutMapping("add-payment/{orderId}")
     public ResponseEntity<OrderDto> addPaymentToOrder(
             @PathVariable("orderId") Long orderId,
@@ -68,5 +81,11 @@ public class OrderController {
         orderService.updateOrderPaymentStatus(orderId, paymentStatus);
         return ResponseEntity.ok("Payment status updated successfully.");
     }
+    // Generate invoice and return order details after successful payment
+//    @PostMapping("generate-invoice/{orderId}")
+//    public ResponseEntity<String> generateInvoice(@PathVariable("orderId") Long orderId) {
+//        orderService.generateInvoice(orderId); // Logic to generate invoice number
+//        return ResponseEntity.ok("Invoice generated successfully.");
+//    }
 
 }

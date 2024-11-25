@@ -21,27 +21,19 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Order(Long id, Long invoiceNumber, Long orderType, Long customerId, Long acceptedBy, Integer tableNumber, Integer status, Integer numberOfPeople, Double totalAmount, Double cash, Double exchange, Date orderDate, String description, List<Payment> payments, PaymentStatus paymentStatus) {
-        this.id = id;
-        this.invoiceNumber = invoiceNumber;
-        this.orderType = orderType;
-        this.customerId = customerId;
-        this.acceptedBy = acceptedBy;
-        this.tableNumber = tableNumber;
-        this.status = status;
-        this.numberOfPeople = numberOfPeople;
-        this.totalAmount = totalAmount;
-        this.cash = cash;
-        this.exchange = exchange;
-        this.orderDate = orderDate;
-        this.description = description;
-        this.payments = payments;
-        this.paymentStatus = paymentStatus;
-    }
+    private Long invoiceNumber;
+    private Long orderType;
+    private Long customerId;
+    private Long acceptedBy;
+    private Integer tableNumber;
+    private Integer status;
+    private Integer numberOfPeople;
+    private Double totalAmount;
+    private Double cash;
+    private Double exchange;
+    private Date orderDate;
+    private String description;
 
-    public Order(){
-
-    }
     public Order(Long id, Long invoiceNumber, Long orderType, Long customerId, Long acceptedBy, Integer tableNumber, Integer status, Integer numberOfPeople, Double totalAmount, Double cash, Double exchange, Date orderDate, String description, PaymentStatus paymentStatus) {
         this.id = id;
         this.invoiceNumber = invoiceNumber;
@@ -58,23 +50,10 @@ public class Order {
         this.description = description;
         this.paymentStatus = paymentStatus;
     }
+    public Order(){
 
-    private Long invoiceNumber;
-    private Long orderType;
-    private Long customerId;
-    private Long acceptedBy;
-    private Integer tableNumber;
-    private Integer status;
-    private Integer numberOfPeople;
-    private Double totalAmount;
-    private Double cash;
-    private Double exchange;
-    private Date orderDate;
-    private String description;
-
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Payment> payments; // Linking Payment with Order
+    }
 
     @Enumerated(EnumType.STRING)
-    private PaymentStatus paymentStatus = PaymentStatus.PENDING; // Default to PENDING
+    private PaymentStatus paymentStatus = PaymentStatus.PENDING;
 }

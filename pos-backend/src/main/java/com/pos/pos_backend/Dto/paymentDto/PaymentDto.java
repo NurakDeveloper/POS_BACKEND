@@ -26,8 +26,9 @@ public class PaymentDto {
     @NotNull(message = "Payment method is required")
     private PaymentMethod paymentMethod;
 
-    @NotNull(message = "Payment status is required")
     private String paymentStatus;
 
     private Date paymentDate;
+
+
 }

@@ -30,9 +30,7 @@ public class OrderMapper {
                 order.getOrderDate(),
                 order.getDescription(),
                 order.getPaymentStatus() != null ? order.getPaymentStatus().toString() : PaymentStatus.PENDING.toString(),
-                order.getPayments() != null ? order.getPayments().stream()
-                        .map(PaymentMapper::mapToPaymentDto)
-                        .collect(Collectors.toList()) : null
+                null // Payments removed
         );
     }
 
