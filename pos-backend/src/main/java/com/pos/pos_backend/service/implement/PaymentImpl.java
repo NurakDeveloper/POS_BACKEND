@@ -42,6 +42,7 @@ public class PaymentImpl implements PaymentService {
         Order order = orderRepository.findById(paymentDto.getOrderId())
                 .orElseThrow(() -> new RuntimeException("Order not found with ID: " + paymentDto.getOrderId()));
         payment.setOrder(order);
+        payment.setPaymentMethod(paymentDto.getPaymentMethod()); // Handle paymentMethod as a string
         Payment savePayment = paymentRepository.save(payment);
         return PaymentMapper.mapToPaymentDto(savePayment);
     }

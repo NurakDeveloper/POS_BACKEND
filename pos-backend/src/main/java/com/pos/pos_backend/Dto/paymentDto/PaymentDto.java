@@ -24,11 +24,12 @@ public class PaymentDto {
     private Double amountPaid;
 
     @NotNull(message = "Payment method is required")
-    private PaymentMethod paymentMethod;
+    private String paymentMethod; // Use String instead of PaymentMethod class
 
     private String paymentStatus;
 
     private Date paymentDate;
+
 
 
 }

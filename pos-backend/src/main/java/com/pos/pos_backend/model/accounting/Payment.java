@@ -23,14 +23,15 @@ public class Payment {
     private Long id;
     private Long orderId;
     private Double amountPaid;
-    @Enumerated(EnumType.STRING)
-    private PaymentMethod paymentMethod;
+    @NotNull
+    private String paymentMethod; // Store as String in the database
 
     private String paymentStatus;
     private Date paymentDate;
-    public void setPaymentMethod(@NotNull PaymentMethod paymentMethod) {
 
-    }
+//    public PaymentMethod getPaymentMethod() {
+//        return new PaymentMethod(paymentMethod);
+//    }
 
     public void setOrder(Order order) {
     }
