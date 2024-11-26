@@ -11,20 +11,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @SqlResultSetMapping(
-        name = "expen seMapping",
+        name = "incomeMapping",
         classes = @ConstructorResult(
-                targetClass = JournalDto.class,
+                targetClass = IncomeReport.class,
                 columns = {
                         @ColumnResult(name = "datejournal", type = String.class),
-                        @ColumnResult(name = "totalExpense", type = Double.class),
+                        @ColumnResult(name = "totalIncome", type = Double.class),
                         @ColumnResult(name = "reference", type = String.class)
                 }
         )
 )
-public class ExpenseReport {
+public class IncomeReport {
 
     private String datejournal;
-    private Double totalExpense;
+    private Double totalIncome;
     private String reference;
 
 }
