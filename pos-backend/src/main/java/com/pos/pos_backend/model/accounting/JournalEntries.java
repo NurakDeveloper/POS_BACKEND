@@ -1,7 +1,9 @@
 package com.pos.pos_backend.model.accounting;
 
 import com.pos.pos_backend.Dto.accounting.ExpenseReport;
+import com.pos.pos_backend.Dto.accounting.IncomeReport;
 import com.pos.pos_backend.Dto.accounting.JournalDto;
+import com.pos.pos_backend.Dto.procedure.ProductSold;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,6 +38,17 @@ import java.util.Date;
                         @ColumnResult(name = "datejournal", type = String.class),
                         @ColumnResult(name = "totalExpense", type = Double.class),
                         @ColumnResult(name = "reference", type = String.class),
+                }
+        )
+)
+@SqlResultSetMapping(
+        name = "productSoldMapping",
+        classes = @ConstructorResult(
+                targetClass = ProductSold.class,
+                columns = {
+                        @ColumnResult(name = "orderDate", type = String.class),
+                        @ColumnResult(name = "product", type = String.class),
+                        @ColumnResult(name = "sold", type = Integer.class)
                 }
         )
 )

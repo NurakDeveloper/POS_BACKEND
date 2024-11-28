@@ -1,6 +1,8 @@
 package com.pos.pos_backend.controller;
 
 import com.pos.pos_backend.Dto.ProductDto;
+import com.pos.pos_backend.Dto.procedure.ProductSold;
+import com.pos.pos_backend.repository.CustomizeRepository;
 import com.pos.pos_backend.service.ProductService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -16,6 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductController {
     private ProductService productService;
+    private CustomizeRepository customizeRepository;
 
     @PostMapping("create")
     public ResponseEntity<ProductDto> createProduct(@Valid @RequestBody ProductDto productDto) {
@@ -42,5 +45,10 @@ public class ProductController {
     @PutMapping("update/{id}")
     public ResponseEntity<ProductDto> updateProduct(@PathVariable("id") Long id, @Valid @RequestBody ProductDto productDto) {
         return ResponseEntity.ok(productService.updateProductById(id, productDto));
+    }
+
+    @GetMapping("list-product-sold")
+    public ResponseEntity<List<ProductSold>> getAllProductSold(){
+        return ResponseEntity.ok(customizeRepository.getAllProduct());
     }
 }
