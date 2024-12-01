@@ -28,5 +28,6 @@ public class OrderDto {
     private Date orderDate;
     private String description;
     private String paymentStatus;
+    private PaymentDto payment; // Include single payment details
     private List<PaymentDto> payments; // Include payment information
 }

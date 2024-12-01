@@ -1,5 +1,6 @@
 package com.pos.pos_backend.Dto.orderDto;
 
+import com.pos.pos_backend.Dto.paymentDto.PaymentDto;
 import com.pos.pos_backend.model.accounting.Payment;
 import com.pos.pos_backend.model.order.OrderLine;
 import lombok.AllArgsConstructor;
@@ -18,6 +19,7 @@ public class OrderRequest {
     private Long customerId;
     private Long acceptedBy;
     private Integer tableNumber;
+
 
     public OrderRequest(Long id, Long invoiceNumber, Long orderType, Long customerId, Long acceptedBy, Integer tableNumber, Integer status, Integer numberOfPeople, Double totalAmount, Double cash, Double exchange, Date orderDate, String description, String paymentStatus, List<OrderLineDto> orderLines) {
         this.id = id;
@@ -56,6 +58,8 @@ public class OrderRequest {
         this.description = description;
         this.paymentStatus = paymentStatus;
     }
+
+    private PaymentDto paymentDto; // Include payment details
 
     private Integer status;
     private Integer numberOfPeople;

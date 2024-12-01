@@ -17,6 +17,7 @@
 
         OrderDto addPaymentToOrder(Long orderId, Double amountPaid, String paymentMethod); // New method
 
+//        OrderDto createOrderWithPayment(OrderDto orderDto, PaymentDto paymentDto);
         void updateOrderPaymentStatus(Long orderId, PaymentStatus paymentStatus);
 
     }

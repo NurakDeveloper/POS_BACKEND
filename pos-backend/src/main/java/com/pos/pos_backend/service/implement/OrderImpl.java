@@ -112,6 +112,21 @@ public class OrderImpl implements OrderService {
         return OrderMapper.mapToOrderDto(order);
     }
 
+//    @Override
+//    public OrderDto createOrderWithPayment(OrderDto orderDto, PaymentDto paymentDto) {
+//        // Create the order
+//        Order order = orderRepository.save(OrderMapper.mapToOrder(orderDto));
+//
+//        // Handle the payment
+//        Payment payment = PaymentMapper.mapToPayment(paymentDto);
+//        payment.setOrder(order);
+//        paymentRepository.save(payment);
+//
+//        // Update the payment status in the order
+//        order.setPaymentStatus(payment.getPaymentStatus());
+//        return OrderMapper.mapToOrderDto(order);
+//    }
+
     private String formatOrderDate(Date orderDate) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         return formatter.format(orderDate);
