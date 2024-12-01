@@ -18,6 +18,7 @@ public class OrderMapper {
         return new OrderDto(
                 order.getId(),
                 order.getInvoiceNumber(),
+                order.getBranchId(),
                 order.getOrderType(),
                 order.getCustomerId(),
                 order.getAcceptedBy(),
@@ -38,6 +39,7 @@ public class OrderMapper {
         Order order = new Order();
         order.setId(orderDto.getId());
         order.setInvoiceNumber(orderDto.getInvoiceNumber());
+        order.setBranchId(orderDto.getBranchId());
         order.setOrderType(orderDto.getOrderType());
         order.setCustomerId(orderDto.getCustomerId());
         order.setAcceptedBy(orderDto.getAcceptedBy());
@@ -56,9 +58,10 @@ public class OrderMapper {
     public static Order toOrder(OrderRequest orderRequest){
         return new Order(
                 orderRequest.getId(),
-                orderRequest.getCustomerId(),
                 orderRequest.getInvoiceNumber(),
+                orderRequest.getBranchId(),
                 orderRequest.getOrderType(),
+                orderRequest.getCustomerId(),
                 orderRequest.getAcceptedBy(),
                 orderRequest.getTableNumber(),
                 orderRequest.getStatus(),
@@ -77,9 +80,10 @@ public class OrderMapper {
     public static OrderRequest toRequest(Order order , List<OrderLineDto> orderLineDto){
         return new OrderRequest(
                 order.getId(),
-                order.getCustomerId(),
                 order.getInvoiceNumber(),
+                order.getBranchId(),
                 order.getOrderType(),
+                order.getCustomerId(),
                 order.getAcceptedBy(),
                 order.getTableNumber(),
                 order.getStatus(),

@@ -16,12 +16,15 @@ import java.util.List;
 @Table(name = "orders")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Long invoiceNumber;
+    private Long branchId;
     private Long orderType;
     private Long customerId;
     private Long acceptedBy;
@@ -34,25 +37,8 @@ public class Order {
     private Date orderDate;
     private String description;
 
-    public Order(Long id, Long invoiceNumber, Long orderType, Long customerId, Long acceptedBy, Integer tableNumber, Integer status, Integer numberOfPeople, Double totalAmount, Double cash, Double exchange, Date orderDate, String description, PaymentStatus paymentStatus) {
-        this.id = id;
-        this.invoiceNumber = invoiceNumber;
-        this.orderType = orderType;
-        this.customerId = customerId;
-        this.acceptedBy = acceptedBy;
-        this.tableNumber = tableNumber;
-        this.status = status;
-        this.numberOfPeople = numberOfPeople;
-        this.totalAmount = totalAmount;
-        this.cash = cash;
-        this.exchange = exchange;
-        this.orderDate = orderDate;
-        this.description = description;
-        this.paymentStatus = paymentStatus;
-    }
-    public Order(){
 
-    }
+
 
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus = PaymentStatus.PENDING;

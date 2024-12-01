@@ -1,7 +1,11 @@
 package com.pos.pos_backend.model.accounting;
 
 import com.pos.pos_backend.Dto.accounting.ExpenseReport;
+import com.pos.pos_backend.Dto.accounting.IncomeReport;
 import com.pos.pos_backend.Dto.accounting.JournalDto;
+import com.pos.pos_backend.Dto.procedure.MonthlySale;
+import com.pos.pos_backend.Dto.procedure.NetIncome;
+import com.pos.pos_backend.Dto.procedure.ProductSold;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,6 +40,41 @@ import java.util.Date;
                         @ColumnResult(name = "datejournal", type = String.class),
                         @ColumnResult(name = "totalExpense", type = Double.class),
                         @ColumnResult(name = "reference", type = String.class),
+                }
+        )
+)
+@SqlResultSetMapping(
+        name = "productSoldMapping",
+        classes = @ConstructorResult(
+                targetClass = ProductSold.class,
+                columns = {
+                        @ColumnResult(name = "orderDate", type = String.class),
+                        @ColumnResult(name = "product", type = String.class),
+                        @ColumnResult(name = "sold", type = Integer.class)
+                }
+        )
+)
+@SqlResultSetMapping(
+        name = "monthlySaleMapping",
+        classes = @ConstructorResult(
+                targetClass = MonthlySale.class,
+                columns = {
+                        @ColumnResult(name = "month", type = String.class),
+                        @ColumnResult(name = "sales", type = Double.class),
+
+                }
+        )
+)
+@SqlResultSetMapping(
+        name = "netIncomeMapping",
+        classes = @ConstructorResult(
+                targetClass = NetIncome.class,
+                columns = {
+                        @ColumnResult(name = "month", type = String.class),
+                        @ColumnResult(name = "totalRevenues", type = Double.class),
+                        @ColumnResult(name = "totalExpense", type = Double.class),
+                        @ColumnResult(name = "netIncome", type = Double.class),
+
                 }
         )
 )

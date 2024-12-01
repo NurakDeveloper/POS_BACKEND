@@ -52,6 +52,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDto updateProductById(Long productId, ProductDto productDto) {
+
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
         Category category = categoryRepository.findById(productDto.getCategoryId())
@@ -59,9 +60,22 @@ public class ProductServiceImpl implements ProductService {
         product.setCategory(category);
         // Update other fields
         product.setProductName(productDto.getProductName());
+        product.setPrepareTime(productDto.getPrepareTime());
+        product.setProductOrigin(productDto.getProductOrigin());
+        product.setSugar(productDto.getSugar());
+        product.setMaxOrderQty(productDto.getMaxOrderQty());
+        product.setMinOrderQty(productDto.getMinOrderQty());
         product.setCalories(productDto.getCalories());
+        product.setImage(productDto.getImage());
         product.setDescription(productDto.getDescription());
         product.setPrice(productDto.getPrice());
+        product.setStatus(productDto.getStatus());
+        product.setPrice(productDto.getPrice());
+        product.setBranchId(productDto.getBranchId());
+        product.setCalories(productDto.getCalories());
+        product.setCreatedBy(productDto.getCreatedBy());
+        product.setCreatedDate(productDto.getCreatedDate());
+        product.setUpdatedBy(productDto.getUpdatedBy());
         return ProductMapper.mapToProductDto(productRepository.save(product));
     }
 }
