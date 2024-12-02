@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
                 columns = {
                         @ColumnResult(name = "month", type = String.class),
                         @ColumnResult(name = "revenuesAccount", type = String.class),
-                        @ColumnResult(name = "totalRevenues", type = Double.class),
+                        @ColumnResult(name = "totalRevnues", type = Double.class),
                         @ColumnResult(name = "description", type = String.class)
                 }
         )
@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 public class RevenuesReporting {
     private String month ;
     private String revenuesAccount;
-    private Double totalRevenues ;
+    private Double totalRevnues ;
     private String description ;
 
 }

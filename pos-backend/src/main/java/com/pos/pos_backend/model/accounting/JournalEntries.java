@@ -95,7 +95,7 @@ import java.util.Date;
                 columns = {
                         @ColumnResult(name = "month", type = String.class),
                         @ColumnResult(name = "revenuesAccount", type = String.class),
-                        @ColumnResult(name = "totalRevenues", type = Double.class),
+                        @ColumnResult(name = "totalRevnues", type = Double.class),
                         @ColumnResult(name = "description", type = String.class)
                 }
         )
