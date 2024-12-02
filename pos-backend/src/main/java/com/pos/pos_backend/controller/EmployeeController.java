@@ -26,7 +26,7 @@ public class EmployeeController {
     public Integer getTotalEmployee(){
         return employeeService.totalEmployee();
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("remove/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") Long employeeId){
         employeeService.removeEmployeeById(employeeId);
         return ResponseEntity.ok("ID Has Been Deleted +" + employeeId );
