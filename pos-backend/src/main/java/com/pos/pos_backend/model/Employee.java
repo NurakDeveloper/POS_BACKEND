@@ -1,47 +1,49 @@
 package com.pos.pos_backend.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "employee")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
     @Column(nullable = false)
-    private String lastName;
+    String lastName;
     @Column(nullable = false)
-    private String firstName;
-    private String schedule;
-    private Long workShiftID;
-    private Long managerID;
-    private String cv;
-    private Long positionID;
-    private Long companyID;
-    private String resume;
-    private Integer dayOff;
-    private String email;
+    @NotBlank
+    String firstName;
+    String schedule;
+    Long workShiftID;
+    Long managerID;
+    String cv;
+    Long positionID;
+    Long companyID;
+    String resume;
+    Integer dayOff;
+    @Email
+    String email;
     @Column(unique = true)
-    private String mobile;
-    private String gender;
-    private Double salary;
-    private String address;
+    String mobile;
+    String gender;
+    Double salary;
+    String address;
     @Column(unique = true)
-    private String bankAccount;
-    private String contact;
-    private Date startWorkingDate ;
-    private Date createdDate;
-    private Date updatedDate ;
-    private String image;
+    String bankAccount;
+    String contact;
+    Date startWorkingDate ;
+    Date createdDate;
+    Date updatedDate ;
+    String image;
 }
 
