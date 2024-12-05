@@ -1,17 +1,13 @@
 package com.pos.pos_backend.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "categories")
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 public class Category {
 
     @Id
@@ -27,12 +23,4 @@ public class Category {
     private String image;
 
     // Constructor, other fields, and methods
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 }

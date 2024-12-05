@@ -1,7 +1,9 @@
 package com.pos.pos_backend.controller.reporting;
 
+import com.pos.pos_backend.Dto.procedure.ExpenseReporting;
 import com.pos.pos_backend.Dto.procedure.MonthlySale;
 import com.pos.pos_backend.Dto.procedure.NetIncome;
+import com.pos.pos_backend.Dto.procedure.RevenuesReporting;
 import com.pos.pos_backend.repository.CustomizeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -31,5 +33,17 @@ public class ReportController {
     public ResponseEntity<List<NetIncome>> netIncome(){
         return ResponseEntity.ok(customizeRepository.getNetIncome());
     }
+
+    // Get Expense reporting from store procedure
+    @GetMapping("expense")
+    public ResponseEntity<List<ExpenseReporting>> getExpense(){
+        return ResponseEntity.ok(customizeRepository.getExpenseReporting());
+    }
+    // Get Revenues reporting from store procedure
+    @GetMapping("revenues")
+    public ResponseEntity<List<RevenuesReporting>> getRevenues(){
+        return ResponseEntity.ok(customizeRepository.getRevenuesReporting());
+    }
+
 
 }

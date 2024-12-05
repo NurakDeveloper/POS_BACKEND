@@ -21,22 +21,22 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.createCategory(categoryDto));
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("list-categories")
     public ResponseEntity<List<CategoryDto>> getAllCategories() {
         return ResponseEntity.ok(categoryService.getAllCategories());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("get-categories/{id}")
     public ResponseEntity<CategoryDto> getCategoryById(@PathVariable Long id) {
         return ResponseEntity.ok(categoryService.getCategoryById(id));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("update-categories/{id}")
     public ResponseEntity<CategoryDto> updateCategory(@PathVariable Long id, @RequestBody CategoryDto categoryDto) {
         return ResponseEntity.ok(categoryService.updateCategory(id, categoryDto));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("remove/{id}")
     public ResponseEntity<String> deleteCategory(@PathVariable Long id) {
         categoryService.deleteCategoryById(id);
         return ResponseEntity.ok("Category with ID " + id + " has been deleted.");

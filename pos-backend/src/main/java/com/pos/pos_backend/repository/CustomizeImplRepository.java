@@ -3,9 +3,7 @@ package com.pos.pos_backend.repository;
 import com.pos.pos_backend.Dto.DateFilter;
 import com.pos.pos_backend.Dto.accounting.ExpenseReport;
 import com.pos.pos_backend.Dto.accounting.JournalDto;
-import com.pos.pos_backend.Dto.procedure.MonthlySale;
-import com.pos.pos_backend.Dto.procedure.NetIncome;
-import com.pos.pos_backend.Dto.procedure.ProductSold;
+import com.pos.pos_backend.Dto.procedure.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
@@ -48,6 +46,18 @@ public class CustomizeImplRepository implements CustomizeRepository {
     @Override
     public List<NetIncome> getNetIncome() {
         Query query = entityManager.createNativeQuery("CALL getNetIncome()", "netIncomeMapping");
+        return query.getResultList();
+    }
+
+    @Override
+    public List<RevenuesReporting> getRevenuesReporting() {
+        Query query = entityManager.createNativeQuery("CALL getRevenues()", "revenuesMappingReport");
+        return query.getResultList();
+    }
+
+    @Override
+    public List<ExpenseReporting> getExpenseReporting() {
+        Query query = entityManager.createNativeQuery("CALL getExpense()", "expenseMappingReport");
         return query.getResultList();
     }
 

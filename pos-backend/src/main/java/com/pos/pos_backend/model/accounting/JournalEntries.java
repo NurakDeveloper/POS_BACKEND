@@ -3,9 +3,7 @@ package com.pos.pos_backend.model.accounting;
 import com.pos.pos_backend.Dto.accounting.ExpenseReport;
 import com.pos.pos_backend.Dto.accounting.IncomeReport;
 import com.pos.pos_backend.Dto.accounting.JournalDto;
-import com.pos.pos_backend.Dto.procedure.MonthlySale;
-import com.pos.pos_backend.Dto.procedure.NetIncome;
-import com.pos.pos_backend.Dto.procedure.ProductSold;
+import com.pos.pos_backend.Dto.procedure.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -75,6 +73,30 @@ import java.util.Date;
                         @ColumnResult(name = "totalExpense", type = Double.class),
                         @ColumnResult(name = "netIncome", type = Double.class),
 
+                }
+        )
+)
+@SqlResultSetMapping(
+        name = "expenseMappingReport",
+        classes = @ConstructorResult(
+                targetClass = ExpenseReporting.class,
+                columns = {
+                        @ColumnResult(name = "month", type = String.class),
+                        @ColumnResult(name = "expenseAccount", type = String.class),
+                        @ColumnResult(name = "totalExpense", type = Double.class),
+                        @ColumnResult(name = "description", type = String.class)
+                }
+        )
+)
+@SqlResultSetMapping(
+        name = "revenuesMappingReport",
+        classes = @ConstructorResult(
+                targetClass = RevenuesReporting.class,
+                columns = {
+                        @ColumnResult(name = "month", type = String.class),
+                        @ColumnResult(name = "revenuesAccount", type = String.class),
+                        @ColumnResult(name = "totalRevnues", type = Double.class),
+                        @ColumnResult(name = "description", type = String.class)
                 }
         )
 )
