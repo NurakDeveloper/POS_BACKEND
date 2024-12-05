@@ -36,10 +36,6 @@ public class Order {
     private Double exchange;
     private Date orderDate;
     private String description;
-
-
-
-
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus = PaymentStatus.PENDING;
 }
