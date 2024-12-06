@@ -30,10 +30,27 @@ public class OrderController {
 
     // CREATE Order with OrderLine
     @PostMapping("post-multiple-items")
-    public ResponseEntity<OrderRequest> postOrder(@RequestBody OrderRequest orderRequest){
-        OrderRequest orderRequest1 = orderServiceMulti.orderRequest(orderRequest);
-        return new ResponseEntity<>(orderRequest1,HttpStatus.CREATED);
+    public ResponseEntity<?> postOrder(@RequestBody OrderRequest orderRequest) {
+        // Validate if cash is sufficient
+        if (orderRequest.getCash() < orderRequest.getTotalAmount()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Insufficient cash provided!");
+        }
+
+        // Calculate exchange
+        orderRequest.setExchange(orderRequest.getCash() - orderRequest.getTotalAmount());
+
+        // Process order
+        try {
+            OrderRequest processedOrder = orderServiceMulti.orderRequest(orderRequest);
+            return new ResponseEntity<>(processedOrder, HttpStatus.CREATED);
+        } catch (Exception e) {
+            // Handle unexpected errors gracefully
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("An error occurred while processing the order: " + e.getMessage());
+        }
     }
+
 
     @GetMapping("total-order")
     public Double getTotalToday(){

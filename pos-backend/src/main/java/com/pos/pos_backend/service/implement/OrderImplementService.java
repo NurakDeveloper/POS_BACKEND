@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,24 +22,41 @@ import java.util.stream.Collectors;
 public class OrderImplementService implements OrderServiceMulti {
     private OrderRepository orderRepository;
     private OrderLineRepository orderLineRepository;
+
     @Override
     public OrderRequest orderRequest(OrderRequest orderRequest) {
-        System.out.println("helloddd");
-        Order order = OrderMapper.toOrder(orderRequest);
-        Order saveOrder = orderRepository.save(order);
-        System.out.println("Hello");
-        ArrayList<OrderLineDto> orderLines = new ArrayList<>();
-        for (int i =0 ;i<orderRequest.getOrderLines().size();i++){
-            OrderLine orderLine = OrderLineMapper.mapToOrderLine(orderRequest.getOrderLines().get(i));
-            orderLine.setOrderId(saveOrder.getId());
-            OrderLine saveOrderLine = orderLineRepository.save(orderLine);
-            OrderLineDto ol = OrderLineMapper.mapToOrderLineDto(saveOrderLine);
-            orderLines.add(ol);
+        // Validate and calculate exchange
+        if (orderRequest.getCash() < orderRequest.getTotalAmount()) {
+            throw new IllegalArgumentException("Insufficient cash for payment.");
         }
 
-        return OrderMapper.toRequest(
-                saveOrder,
-                orderLines.stream().toList()   // Collect to a List
-        );
+        orderRequest.setExchange(orderRequest.getCash() - orderRequest.getTotalAmount());
+
+        // Set payment status to COMPLETED
+        orderRequest.setPaymentStatus("COMPLETED");
+        // Map to Order entity and save
+        Order order = OrderMapper.toOrder(orderRequest);
+        Order saveOrder = orderRepository.save(order);
+
+        System.out.println("Hello");
+//        ArrayList<OrderLineDto> orderLines = new ArrayList<>();
+//        for (int i =0 ;i<orderRequest.getOrderLines().size();i++){
+//            OrderLine orderLine = OrderLineMapper.mapToOrderLine(orderRequest.getOrderLines().get(i));
+//            orderLine.setOrderId(saveOrder.getId());
+//            OrderLine saveOrderLine = orderLineRepository.save(orderLine);
+//            OrderLineDto ol = OrderLineMapper.mapToOrderLineDto(saveOrderLine);
+//            orderLines.add(ol);
+//        }
+
+        // Map OrderLines, save them, and collect DTOs
+        List<OrderLineDto> orderLines = orderRequest.getOrderLines().stream()
+                .map(OrderLineMapper::mapToOrderLine)
+                .peek(orderLine -> orderLine.setOrderId(saveOrder.getId())) // Set Order ID for each line
+                .map(orderLineRepository::save)
+                .map(OrderLineMapper::mapToOrderLineDto)
+                .collect(Collectors.toList());
+
+        // Convert back to OrderRequest with saved OrderLines
+        return OrderMapper.toRequest(saveOrder, orderLines);
     }
 }

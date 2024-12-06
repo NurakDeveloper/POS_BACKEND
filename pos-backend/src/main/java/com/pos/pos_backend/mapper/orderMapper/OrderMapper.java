@@ -55,7 +55,7 @@ public class OrderMapper {
                 PaymentStatus.valueOf(orderDto.getPaymentStatus()) : PaymentStatus.PENDING);
         return order;
     }
-    public static Order toOrder(OrderRequest orderRequest){
+    public static Order toOrder(OrderRequest orderRequest) {
         return new Order(
                 orderRequest.getId(),
                 orderRequest.getInvoiceNumber(),
@@ -73,11 +73,10 @@ public class OrderMapper {
                 orderRequest.getDescription(),
                 orderRequest.getPaymentStatus() != null ?
                         PaymentStatus.valueOf(orderRequest.getPaymentStatus()) : PaymentStatus.PENDING
-
         );
     }
 
-    public static OrderRequest toRequest(Order order , List<OrderLineDto> orderLineDto){
+    public static OrderRequest toRequest(Order order, List<OrderLineDto> orderLineDtos) {
         return new OrderRequest(
                 order.getId(),
                 order.getInvoiceNumber(),
@@ -90,13 +89,12 @@ public class OrderMapper {
                 order.getNumberOfPeople(),
                 order.getTotalAmount(),
                 order.getCash(),
-                order.getExchange(),
+                order.getCash() - order.getTotalAmount(), // Dynamically calculate exchange
                 order.getOrderDate(),
                 order.getDescription(),
-                "PENDING",
-                orderLineDto
-
-
+                order.getPaymentStatus() != null ? order.getPaymentStatus().toString() : "PENDING",
+                orderLineDtos
         );
     }
+
 }
