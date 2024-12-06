@@ -17,7 +17,7 @@ import java.nio.file.Paths;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/images")
+@RequestMapping("api/images")
 public class ImageController {
 
     @Value("${file.upload-dir}") // Inject upload directory from application.properties

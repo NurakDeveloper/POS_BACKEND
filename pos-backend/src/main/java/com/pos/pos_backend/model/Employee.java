@@ -21,7 +21,6 @@ public class Employee {
     @Column(nullable = false)
     String lastName;
     @Column(nullable = false)
-    @NotBlank
     String firstName;
     String schedule;
     Long workShiftID;

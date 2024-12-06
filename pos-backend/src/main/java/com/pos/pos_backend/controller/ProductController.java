@@ -8,13 +8,14 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("api/product")
+@RequestMapping("api/seller/product")
 @AllArgsConstructor
 public class ProductController {
     private ProductService productService;
@@ -35,6 +36,7 @@ public class ProductController {
     public ResponseEntity<ProductDto> getProductById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(productService.getProductById(id));
     }
+
 
     @DeleteMapping("remove/{id}")
     public ResponseEntity<String> deleteProductById(@PathVariable("id") Long id) {

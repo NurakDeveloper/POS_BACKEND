@@ -6,6 +6,7 @@ import com.pos.pos_backend.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class EmployeeController {
         EmployeeDto employee = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(employee, HttpStatus.CREATED);
     }
+
     @GetMapping("count")
     public Integer getTotalEmployee(){
         return employeeService.totalEmployee();

@@ -19,15 +19,17 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private Long createdBy;
     private Long updatedBy;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category; // Many products belong to one category
-
+    @Column(nullable = false)
     private Long branchId;
+    @Column(nullable = false)
     private Long productCode;
+    @Column(nullable = false)
     private String productName;
     private Double price;
     private String prepareTime;

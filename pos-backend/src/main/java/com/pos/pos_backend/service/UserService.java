@@ -1,8 +1,16 @@
 package com.pos.pos_backend.service;
 
+import com.pos.pos_backend.Dto.UserDTO;
 import com.pos.pos_backend.model.user.UserRequest;
 import com.pos.pos_backend.model.user.UserRespone;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.List;
 
 public interface UserService {
-    UserRespone userLogin(UserRequest userRequest);
+
+    UserDTO createNewUser(UserDTO userDTO);
+    List<UserDTO> listUser();
+    void removeUser(Long id);
+
 }

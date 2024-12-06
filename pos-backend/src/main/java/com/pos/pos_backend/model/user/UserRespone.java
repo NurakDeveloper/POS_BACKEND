@@ -11,8 +11,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserRespone {
+
     private String status ;
     private String message ;
+    private String token ;
     private Long UserId;
     private String Role;
     private Employee data;
