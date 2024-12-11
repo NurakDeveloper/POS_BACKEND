@@ -1,4 +1,7 @@
 package com.pos.pos_backend.repository;
 
-public class VendorRepository {
+import com.pos.pos_backend.model.Vendor;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface VendorRepository extends JpaRepository<Vendor , Long> {
 }

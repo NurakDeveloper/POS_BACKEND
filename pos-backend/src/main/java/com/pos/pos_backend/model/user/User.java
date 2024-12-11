@@ -1,10 +1,7 @@
 package com.pos.pos_backend.model.user;
 
 import com.pos.pos_backend.model.Employee;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +22,7 @@ import java.util.Set;
 @Table(name = "users")
 public class User implements UserDetails {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
     public User(Long userId, String username, Long employeeId, String password, String role, Date createdDate, Date updatedDate) {

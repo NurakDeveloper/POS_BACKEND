@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -25,9 +26,11 @@ public class UserImplementService implements UserService {
     }
 
     @Override
-    public List<UserDTO> listUser() {
-        return null;
+    public List<UserDTO> listUserByEmployeeId(Long employeeId) {
+        List<User> user = userRepository.findUserByEmployeeId(employeeId);
+        return user.stream().map(UserMapper::mapToUserDto).collect(Collectors.toList());
     }
+
 
     @Override
     public void removeUser(Long id) {

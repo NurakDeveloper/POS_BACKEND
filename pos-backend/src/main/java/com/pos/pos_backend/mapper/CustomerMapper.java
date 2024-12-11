@@ -19,7 +19,8 @@ public class CustomerMapper {
                 customer.getCountry(),
                 customer.getJoinDate(),
                 customer.getMembershipStatus(),
-                customer.getStatus()
+                customer.getStatus(),
+                customer.getImage()
         );
     }
 
@@ -38,7 +39,8 @@ public class CustomerMapper {
                 customerDto.getCountry(),
                 customerDto.getJoinDate(),
                 customerDto.getMembershipStatus(),
-                customerDto.getStatus()
+                customerDto.getStatus(),
+                customerDto.getImage()
         );
     }
 }

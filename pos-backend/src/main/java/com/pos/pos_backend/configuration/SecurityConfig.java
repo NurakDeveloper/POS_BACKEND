@@ -38,7 +38,8 @@ public class SecurityConfig {
                 // Configure authorization rules
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("auth/login").permitAll()
-//                        .requestMatchers("api/**").permitAll()
+                        .requestMatchers("api/employee/get-employee/**").permitAll()
+                        .requestMatchers("api/images/**").permitAll()
                         .requestMatchers("auth/create").hasRole("ADMIN")
                         .requestMatchers("api/admin/**").hasRole("ADMIN")
                         .requestMatchers("api/seller/**").hasAnyRole("ADMIN", "SELLER")

@@ -10,6 +10,7 @@ import com.pos.pos_backend.model.user.UserRequest;
 import com.pos.pos_backend.model.user.UserRespone;
 import com.pos.pos_backend.repository.EmployeeRepository;
 import com.pos.pos_backend.repository.UserRepository;
+import com.pos.pos_backend.service.EmployeeService;
 import com.pos.pos_backend.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/auth")
@@ -33,7 +36,7 @@ public class AuthenticationController {
     private UserRepository userRepo ;
     private JwtUtil jwtUtil;
     private UserService userService;
-    private EmployeeRepository employeeRepository;
+   private EmployeeRepository employeeRepository;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserRequest authRequest) {
@@ -45,15 +48,11 @@ public class AuthenticationController {
 
             // Find the user
             User findUser = userRepo.findByUsername(authRequest.getUsername());
-            if (findUser == null) {
-                return ResponseEntity.status(404).body("User not found");
-            }
-
             // Generate JWT token
             String token = jwtUtil.generateToken(authRequest.getUsername());
 
             // Return the response
-            return ResponseEntity.ok(new UserRespone("success", "ok", token, findUser.getUserId(), findUser.getRole(), null));
+            return ResponseEntity.ok(new UserRespone("success", "ok", token, findUser.getUserId(), findUser.getRole(),employeeRepository.getEmployee(findUser.getEmployeeId()) ));
         } catch (AuthenticationException e) {
 //            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
@@ -65,5 +64,10 @@ public class AuthenticationController {
         UserDTO user = userService.createNewUser(userDTO);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
 
+    }
+
+    @GetMapping("get-user/{id}")
+    public ResponseEntity<?> getUserByEmployee(@PathVariable("id") Long employeeId){
+        return ResponseEntity.ok(userService.listUserByEmployeeId(employeeId));
     }
 }

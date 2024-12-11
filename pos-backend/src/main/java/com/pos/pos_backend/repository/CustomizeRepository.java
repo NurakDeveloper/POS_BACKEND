@@ -15,5 +15,8 @@ public interface CustomizeRepository {
     List<NetIncome> getNetIncome();
     List<RevenuesReporting> getRevenuesReporting();
     List<ExpenseReporting> getExpenseReporting();
+    List<BestSellerDailyProduct> getBestSellerProductDailyReporting();
+    List<MonthlySaleReporting> getMonthlySaleReporting();
+    List<DailySaleReporting> getDailySaleReporting();
 
 }

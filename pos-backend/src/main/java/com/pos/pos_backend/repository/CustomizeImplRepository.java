@@ -61,4 +61,22 @@ public class CustomizeImplRepository implements CustomizeRepository {
         return query.getResultList();
     }
 
+    @Override
+    public List<BestSellerDailyProduct> getBestSellerProductDailyReporting() {
+        Query query = entityManager.createNativeQuery("CALL getProductBestSellDaily()", "dailySellProductMapping");
+        return query.getResultList();
+    }
+
+    @Override
+    public List<MonthlySaleReporting> getMonthlySaleReporting() {
+        Query query = entityManager.createNativeQuery("CALL getMonthlySale()", "monthlySaleReporting");
+        return query.getResultList();
+    }
+
+    @Override
+    public List<DailySaleReporting> getDailySaleReporting() {
+        Query query = entityManager.createNativeQuery("CALL getDailySale()", "dailySaleReporting");
+        return query.getResultList();
+    }
+
 }

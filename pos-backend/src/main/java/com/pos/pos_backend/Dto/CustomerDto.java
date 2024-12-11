@@ -25,4 +25,5 @@ public class CustomerDto {
     private Date joinDate;
     private String membershipStatus;
     private String status;
+    private String image ;
 }

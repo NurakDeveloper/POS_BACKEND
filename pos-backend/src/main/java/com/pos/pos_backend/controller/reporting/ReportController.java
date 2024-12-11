@@ -1,9 +1,6 @@
 package com.pos.pos_backend.controller.reporting;
 
-import com.pos.pos_backend.Dto.procedure.ExpenseReporting;
-import com.pos.pos_backend.Dto.procedure.MonthlySale;
-import com.pos.pos_backend.Dto.procedure.NetIncome;
-import com.pos.pos_backend.Dto.procedure.RevenuesReporting;
+import com.pos.pos_backend.Dto.procedure.*;
 import com.pos.pos_backend.repository.CustomizeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +19,10 @@ public class ReportController {
     private CustomizeRepository customizeRepository;
 
     // find monthly sale report
-    @GetMapping("monthly-sale")
-    public ResponseEntity<List<MonthlySale>> getMonthlySaleReporting(){
-        return ResponseEntity.ok(customizeRepository.getAllMonthlySale());
-    }
+//    @GetMapping("monthly-sale")
+//    public ResponseEntity<List<MonthlySale>> getMonthlySaleReporting(){
+//        return ResponseEntity.ok(customizeRepository.getAllMonthlySale());
+//    }
 
     // find net income report
 
@@ -43,6 +40,18 @@ public class ReportController {
     @GetMapping("revenues")
     public ResponseEntity<List<RevenuesReporting>> getRevenues(){
         return ResponseEntity.ok(customizeRepository.getRevenuesReporting());
+    }
+    @GetMapping("daily-seller-product")
+    public ResponseEntity<List<BestSellerDailyProduct>> getBestSellerProductDaily(){
+        return ResponseEntity.ok(customizeRepository.getBestSellerProductDailyReporting());
+    }
+    @GetMapping("monthly-sale")
+    public ResponseEntity<List<MonthlySaleReporting>> getMonthlySaleReport(){
+        return ResponseEntity.ok(customizeRepository.getMonthlySaleReporting());
+    }
+    @GetMapping("daily-sale")
+    public ResponseEntity<List<DailySaleReporting>> getDailySaleReporting(){
+        return ResponseEntity.ok(customizeRepository.getDailySaleReporting());
     }
 
 
