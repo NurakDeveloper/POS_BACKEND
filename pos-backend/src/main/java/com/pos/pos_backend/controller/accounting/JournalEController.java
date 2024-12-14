@@ -1,10 +1,10 @@
 package com.pos.pos_backend.controller.accounting;
 
-import com.pos.pos_backend.Dto.DateFilter;
-import com.pos.pos_backend.Dto.accounting.ExpenseReport;
-import com.pos.pos_backend.Dto.accounting.JournalDetailResponse;
-import com.pos.pos_backend.Dto.accounting.JournalDto;
-import com.pos.pos_backend.Dto.accounting.JournalEntriesDto;
+import com.pos.pos_backend.model.Dto.DateFilter;
+import com.pos.pos_backend.model.Dto.accounting.ExpenseReport;
+import com.pos.pos_backend.model.Dto.accounting.JournalDetailResponse;
+import com.pos.pos_backend.model.Dto.accounting.JournalDto;
+import com.pos.pos_backend.model.Dto.accounting.JournalEntriesDto;
 import com.pos.pos_backend.repository.CustomizeRepository;
 import com.pos.pos_backend.service.JournalEntriesService;
 import lombok.AllArgsConstructor;

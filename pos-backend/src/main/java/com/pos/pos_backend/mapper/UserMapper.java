@@ -1,7 +1,7 @@
 package com.pos.pos_backend.mapper;
 
-import com.pos.pos_backend.Dto.UserDTO;
-import com.pos.pos_backend.model.user.User;
+import com.pos.pos_backend.model.Dto.UserDTO;
+import com.pos.pos_backend.model.entity.user.User;
 
 public class UserMapper {
     public static UserDTO mapToUserDto(User user){

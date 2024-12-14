@@ -1,7 +1,7 @@
 package com.pos.pos_backend.mapper;
 
-import com.pos.pos_backend.Dto.BranchDto;
-import com.pos.pos_backend.model.Branch;
+import com.pos.pos_backend.model.Dto.BranchDto;
+import com.pos.pos_backend.model.entity.Branch;
 
 public class BranchMapper {
 

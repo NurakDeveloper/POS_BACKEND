@@ -1,8 +1,8 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.EmployeeDto;
+import com.pos.pos_backend.model.Dto.EmployeeDto;
 import com.pos.pos_backend.mapper.EmployeeMapper;
-import com.pos.pos_backend.model.Employee;
+import com.pos.pos_backend.model.entity.Employee;
 import com.pos.pos_backend.repository.EmployeeRepository;
 import com.pos.pos_backend.service.EmployeeService;
 import lombok.AllArgsConstructor;

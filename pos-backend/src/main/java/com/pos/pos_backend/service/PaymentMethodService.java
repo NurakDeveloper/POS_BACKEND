@@ -1,6 +1,6 @@
 package com.pos.pos_backend.service;
 
-import com.pos.pos_backend.Dto.PaymentMethodDto;
+import com.pos.pos_backend.model.Dto.PaymentMethodDto;
 
 import java.util.List;
 

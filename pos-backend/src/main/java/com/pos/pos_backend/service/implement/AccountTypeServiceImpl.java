@@ -1,10 +1,9 @@
 package com.pos.pos_backend.service.implement;
 
 
-import com.pos.pos_backend.Dto.accounting.AccountTypeDto;
-import com.pos.pos_backend.mapper.accounting.AccountMapper;
+import com.pos.pos_backend.model.Dto.accounting.AccountTypeDto;
 import com.pos.pos_backend.mapper.accounting.AccountTypeMapper;
-import com.pos.pos_backend.model.accounting.AccountType;
+import com.pos.pos_backend.model.entity.accounting.AccountType;
 import com.pos.pos_backend.repository.AccountTypeRepository;
 import com.pos.pos_backend.service.AccountTypeService;
 import lombok.AllArgsConstructor;

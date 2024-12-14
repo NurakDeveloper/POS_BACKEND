@@ -1,6 +1,6 @@
 package com.pos.pos_backend.repository;
 
-import com.pos.pos_backend.model.PaymentMethod;
+import com.pos.pos_backend.model.entity.PaymentMethod;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
 package com.pos.pos_backend.controller.reporting;
 
-import com.pos.pos_backend.Dto.procedure.*;
+import com.pos.pos_backend.model.Dto.procedure.*;
 import com.pos.pos_backend.repository.CustomizeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

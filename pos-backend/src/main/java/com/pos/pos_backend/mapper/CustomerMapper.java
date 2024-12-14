@@ -1,7 +1,7 @@
 package com.pos.pos_backend.mapper;
 
-import com.pos.pos_backend.Dto.CustomerDto;
-import com.pos.pos_backend.model.Customer;
+import com.pos.pos_backend.model.Dto.CustomerDto;
+import com.pos.pos_backend.model.entity.Customer;
 
 public class CustomerMapper {
     public static CustomerDto mapToCustomerDto(Customer customer) {

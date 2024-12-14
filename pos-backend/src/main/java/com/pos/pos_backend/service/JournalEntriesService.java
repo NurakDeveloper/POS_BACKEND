@@ -1,14 +1,10 @@
 package com.pos.pos_backend.service;
 
-import com.pos.pos_backend.Dto.accounting.JournalDetailResponse;
-import com.pos.pos_backend.Dto.accounting.JournalDto;
-import com.pos.pos_backend.Dto.accounting.JournalEntriesDto;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.pos.pos_backend.model.Dto.accounting.JournalDetailResponse;
+import com.pos.pos_backend.model.Dto.accounting.JournalDto;
+import com.pos.pos_backend.model.Dto.accounting.JournalEntriesDto;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 
 public interface JournalEntriesService {

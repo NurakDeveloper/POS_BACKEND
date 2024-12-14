@@ -1,7 +1,7 @@
 package com.pos.pos_backend.mapper.orderMapper;
 
-import com.pos.pos_backend.Dto.orderDto.OrderLineDto;
-import com.pos.pos_backend.model.order.OrderLine;
+import com.pos.pos_backend.model.Dto.orderDto.OrderLineDto;
+import com.pos.pos_backend.model.entity.order.OrderLine;
 
 
 public class OrderLineMapper {

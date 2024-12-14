@@ -1,10 +1,10 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.ProductDto;
+import com.pos.pos_backend.model.Dto.ProductDto;
 import com.pos.pos_backend.exception.ResourceNotFoundException;
 import com.pos.pos_backend.mapper.ProductMapper;
-import com.pos.pos_backend.model.Category;
-import com.pos.pos_backend.model.Product;
+import com.pos.pos_backend.model.entity.Category;
+import com.pos.pos_backend.model.entity.Product;
 import com.pos.pos_backend.repository.CategoryRepository;
 import com.pos.pos_backend.repository.ProductRepository;
 import com.pos.pos_backend.service.ProductService;

@@ -1,10 +1,8 @@
 package com.pos.pos_backend.repository;
 
-import com.pos.pos_backend.model.order.Order;
-import com.pos.pos_backend.model.order.OrderLine;
+import com.pos.pos_backend.model.entity.order.OrderLine;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 

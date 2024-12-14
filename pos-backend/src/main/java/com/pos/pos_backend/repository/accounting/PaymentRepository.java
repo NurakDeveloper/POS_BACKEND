@@ -1,6 +1,6 @@
 package com.pos.pos_backend.repository.accounting;
 
-import com.pos.pos_backend.model.accounting.Payment;
+import com.pos.pos_backend.model.entity.accounting.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

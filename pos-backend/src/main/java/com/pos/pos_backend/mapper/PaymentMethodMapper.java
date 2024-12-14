@@ -1,7 +1,7 @@
 package com.pos.pos_backend.mapper;
 
-import com.pos.pos_backend.Dto.PaymentMethodDto;
-import com.pos.pos_backend.model.PaymentMethod;
+import com.pos.pos_backend.model.Dto.PaymentMethodDto;
+import com.pos.pos_backend.model.entity.PaymentMethod;
 import org.springframework.stereotype.Component;
 
 @Component

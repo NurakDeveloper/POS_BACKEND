@@ -1,16 +1,12 @@
 package com.pos.pos_backend.mapper.orderMapper;
 
-import com.pos.pos_backend.Dto.orderDto.OrderDto;
-import com.pos.pos_backend.Dto.orderDto.OrderLineDto;
-import com.pos.pos_backend.Dto.orderDto.OrderRequest;
-import com.pos.pos_backend.Dto.paymentDto.PaymentDto;
-import com.pos.pos_backend.enums.PaymentStatus;
-import com.pos.pos_backend.mapper.paymentMapper.PaymentMapper;
-import com.pos.pos_backend.model.order.Order;
-import com.pos.pos_backend.model.order.OrderLine;
+import com.pos.pos_backend.model.Dto.orderDto.OrderDto;
+import com.pos.pos_backend.model.Dto.orderDto.OrderLineDto;
+import com.pos.pos_backend.model.Dto.orderDto.OrderRequest;
+import com.pos.pos_backend.model.enums.PaymentStatus;
+import com.pos.pos_backend.model.entity.order.Order;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class OrderMapper {
 

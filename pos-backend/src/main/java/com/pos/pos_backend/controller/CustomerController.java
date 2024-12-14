@@ -1,6 +1,6 @@
 package com.pos.pos_backend.controller;
 
-import com.pos.pos_backend.Dto.CustomerDto;
+import com.pos.pos_backend.model.Dto.CustomerDto;
 import com.pos.pos_backend.service.CustomerService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
 package com.pos.pos_backend.controller;
 
-import com.pos.pos_backend.Dto.WorkShiftDTO;
+import com.pos.pos_backend.model.Dto.WorkShiftDTO;
 import com.pos.pos_backend.service.WorkShiftService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

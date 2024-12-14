@@ -1,8 +1,8 @@
 package com.pos.pos_backend.mapper;
 
-import com.pos.pos_backend.Dto.ProductDto;
-import com.pos.pos_backend.model.Category;
-import com.pos.pos_backend.model.Product;
+import com.pos.pos_backend.model.Dto.ProductDto;
+import com.pos.pos_backend.model.entity.Category;
+import com.pos.pos_backend.model.entity.Product;
 
 public class ProductMapper {
 

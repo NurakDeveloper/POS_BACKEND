@@ -1,6 +1,6 @@
 package com.pos.pos_backend.repository;
 
-import com.pos.pos_backend.model.user.User;
+import com.pos.pos_backend.model.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

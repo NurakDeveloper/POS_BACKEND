@@ -1,8 +1,8 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.WorkShiftDTO;
+import com.pos.pos_backend.model.Dto.WorkShiftDTO;
 import com.pos.pos_backend.mapper.WorkShiftMapper;
-import com.pos.pos_backend.model.WorkShift;
+import com.pos.pos_backend.model.entity.WorkShift;
 import com.pos.pos_backend.repository.WorkShiftRepository;
 import com.pos.pos_backend.service.WorkShiftService;
 import lombok.AllArgsConstructor;

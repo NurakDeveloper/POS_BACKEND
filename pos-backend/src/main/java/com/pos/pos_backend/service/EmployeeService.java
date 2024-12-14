@@ -1,8 +1,7 @@
 package com.pos.pos_backend.service;
 
-import com.pos.pos_backend.Dto.EmployeeDto;
+import com.pos.pos_backend.model.Dto.EmployeeDto;
 
-import java.text.ParseException;
 import java.util.List;
 
 public interface EmployeeService {

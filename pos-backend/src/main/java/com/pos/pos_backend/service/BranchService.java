@@ -1,6 +1,6 @@
 package com.pos.pos_backend.service;
 
-import com.pos.pos_backend.Dto.BranchDto;
+import com.pos.pos_backend.model.Dto.BranchDto;
 
 import java.util.List;
 

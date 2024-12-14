@@ -1,7 +1,7 @@
 package com.pos.pos_backend.mapper.accounting;
 
-import com.pos.pos_backend.Dto.accounting.AccountDto;
-import com.pos.pos_backend.model.accounting.Account;
+import com.pos.pos_backend.model.Dto.accounting.AccountDto;
+import com.pos.pos_backend.model.entity.accounting.Account;
 
 public class AccountMapper {
     public static AccountDto mapToAccountDto(Account a){

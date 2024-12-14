@@ -1,6 +1,6 @@
 package com.pos.pos_backend.service;
 
-import com.pos.pos_backend.Dto.accounting.AccountTypeDto;
+import com.pos.pos_backend.model.Dto.accounting.AccountTypeDto;
 
 import java.util.List;
 

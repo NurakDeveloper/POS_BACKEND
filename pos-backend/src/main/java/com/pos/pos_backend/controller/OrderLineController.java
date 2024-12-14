@@ -1,6 +1,6 @@
 package com.pos.pos_backend.controller;
 
-import com.pos.pos_backend.Dto.orderDto.OrderLineDto;
+import com.pos.pos_backend.model.Dto.orderDto.OrderLineDto;
 import com.pos.pos_backend.service.OrderLineService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

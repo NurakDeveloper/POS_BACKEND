@@ -1,8 +1,8 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.CategoryDto;
+import com.pos.pos_backend.model.Dto.CategoryDto;
 import com.pos.pos_backend.mapper.CategoryMapper;
-import com.pos.pos_backend.model.Category;
+import com.pos.pos_backend.model.entity.Category;
 import com.pos.pos_backend.repository.CategoryRepository;
 import com.pos.pos_backend.service.CategoryService;
 import lombok.AllArgsConstructor;

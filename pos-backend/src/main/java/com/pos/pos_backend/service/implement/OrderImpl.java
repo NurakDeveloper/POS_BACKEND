@@ -1,14 +1,13 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.orderDto.OrderDto;
-import com.pos.pos_backend.Dto.orderDto.OrderRequest;
-import com.pos.pos_backend.Dto.paymentDto.PaymentDto;
-import com.pos.pos_backend.enums.PaymentStatus;
+import com.pos.pos_backend.model.Dto.orderDto.OrderDto;
+import com.pos.pos_backend.model.Dto.paymentDto.PaymentDto;
+import com.pos.pos_backend.model.enums.PaymentStatus;
 import com.pos.pos_backend.exception.ResourceNotFoundException;
 import com.pos.pos_backend.mapper.orderMapper.OrderMapper;
 import com.pos.pos_backend.mapper.paymentMapper.PaymentMapper;
-import com.pos.pos_backend.model.accounting.Payment;
-import com.pos.pos_backend.model.order.Order;
+import com.pos.pos_backend.model.entity.accounting.Payment;
+import com.pos.pos_backend.model.entity.order.Order;
 import com.pos.pos_backend.repository.OrderRepository;
 import com.pos.pos_backend.repository.accounting.PaymentRepository;
 import com.pos.pos_backend.service.OrderService;

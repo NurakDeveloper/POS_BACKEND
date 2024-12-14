@@ -1,7 +1,6 @@
 package com.pos.pos_backend.controller;
 
-import com.pos.pos_backend.Dto.EmployeeDto;
-import com.pos.pos_backend.repository.EmployeeRepository;
+import com.pos.pos_backend.model.Dto.EmployeeDto;
 import com.pos.pos_backend.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -29,6 +28,7 @@ public class EmployeeController {
         return employeeService.totalEmployee();
     }
     @DeleteMapping("remove/{id}")
+    @PreAuthorize("hasAuthority('admin:delete')")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") Long employeeId){
         employeeService.removeEmployeeById(employeeId);
         return ResponseEntity.ok("ID Has Been Deleted +" + employeeId );

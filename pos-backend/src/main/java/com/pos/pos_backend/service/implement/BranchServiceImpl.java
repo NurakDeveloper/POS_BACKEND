@@ -1,8 +1,8 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.BranchDto;
+import com.pos.pos_backend.model.Dto.BranchDto;
 import com.pos.pos_backend.mapper.BranchMapper;
-import com.pos.pos_backend.model.Branch;
+import com.pos.pos_backend.model.entity.Branch;
 import com.pos.pos_backend.repository.BranchRepository;
 import com.pos.pos_backend.service.BranchService;
 import lombok.AllArgsConstructor;

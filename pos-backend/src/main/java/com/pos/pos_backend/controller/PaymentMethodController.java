@@ -1,6 +1,6 @@
 package com.pos.pos_backend.controller;
 
-import com.pos.pos_backend.Dto.PaymentMethodDto;
+import com.pos.pos_backend.model.Dto.PaymentMethodDto;
 import com.pos.pos_backend.service.PaymentMethodService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

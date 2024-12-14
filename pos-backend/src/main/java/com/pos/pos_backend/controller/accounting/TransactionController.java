@@ -1,6 +1,6 @@
 package com.pos.pos_backend.controller.accounting;
 
-import com.pos.pos_backend.Dto.accounting.TransactionDto;
+import com.pos.pos_backend.model.Dto.accounting.TransactionDto;
 
 import com.pos.pos_backend.service.TransactionService;
 import lombok.AllArgsConstructor;

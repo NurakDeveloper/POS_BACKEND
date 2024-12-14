@@ -1,7 +1,7 @@
 package com.pos.pos_backend.mapper;
 
-import com.pos.pos_backend.Dto.WorkShiftDTO;
-import com.pos.pos_backend.model.WorkShift;
+import com.pos.pos_backend.model.Dto.WorkShiftDTO;
+import com.pos.pos_backend.model.entity.WorkShift;
 
 public class WorkShiftMapper {
     public static WorkShift toModel(WorkShiftDTO dto) {

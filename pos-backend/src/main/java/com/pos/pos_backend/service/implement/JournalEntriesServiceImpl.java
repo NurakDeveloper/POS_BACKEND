@@ -1,12 +1,11 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.accounting.JournalDetailResponse;
-import com.pos.pos_backend.Dto.accounting.JournalDto;
-import com.pos.pos_backend.Dto.accounting.JournalEntriesDto;
+import com.pos.pos_backend.model.Dto.accounting.JournalDetailResponse;
+import com.pos.pos_backend.model.Dto.accounting.JournalDto;
+import com.pos.pos_backend.model.Dto.accounting.JournalEntriesDto;
 import com.pos.pos_backend.mapper.accounting.JournalEntriesMapper;
-import com.pos.pos_backend.mapper.accounting.TransactionMapper;
-import com.pos.pos_backend.model.accounting.JournalEntries;
-import com.pos.pos_backend.model.accounting.Transaction;
+import com.pos.pos_backend.model.entity.accounting.JournalEntries;
+import com.pos.pos_backend.model.entity.accounting.Transaction;
 import com.pos.pos_backend.repository.JournalEntriesRepository;
 import com.pos.pos_backend.repository.TransactionRepository;
 import com.pos.pos_backend.service.JournalEntriesService;
@@ -14,8 +13,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service

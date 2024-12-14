@@ -1,7 +1,7 @@
 package com.pos.pos_backend.mapper.accounting;
 
-import com.pos.pos_backend.Dto.accounting.TransactionDto;
-import com.pos.pos_backend.model.accounting.Transaction;
+import com.pos.pos_backend.model.Dto.accounting.TransactionDto;
+import com.pos.pos_backend.model.entity.accounting.Transaction;
 
 public class TransactionMapper {
     public static TransactionDto mapTransactionDto(Transaction transaction){

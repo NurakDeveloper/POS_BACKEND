@@ -1,9 +1,9 @@
 package com.pos.pos_backend.repository;
 
-import com.pos.pos_backend.Dto.DateFilter;
-import com.pos.pos_backend.Dto.accounting.ExpenseReport;
-import com.pos.pos_backend.Dto.accounting.JournalDto;
-import com.pos.pos_backend.Dto.procedure.*;
+import com.pos.pos_backend.model.Dto.DateFilter;
+import com.pos.pos_backend.model.Dto.accounting.ExpenseReport;
+import com.pos.pos_backend.model.Dto.accounting.JournalDto;
+import com.pos.pos_backend.model.Dto.procedure.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;

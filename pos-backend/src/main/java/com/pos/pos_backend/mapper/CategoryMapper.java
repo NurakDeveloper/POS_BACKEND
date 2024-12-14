@@ -1,7 +1,7 @@
 package com.pos.pos_backend.mapper;
 
-import com.pos.pos_backend.Dto.CategoryDto;
-import com.pos.pos_backend.model.Category;
+import com.pos.pos_backend.model.Dto.CategoryDto;
+import com.pos.pos_backend.model.entity.Category;
 
 public class CategoryMapper {
     public static CategoryDto mapToCategoryDto(Category category) {

@@ -1,7 +1,6 @@
 package com.pos.pos_backend.service;
 
-import com.pos.pos_backend.Dto.ProductDto;
-import com.pos.pos_backend.model.Product;
+import com.pos.pos_backend.model.Dto.ProductDto;
 
 import java.util.List;
 

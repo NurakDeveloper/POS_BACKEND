@@ -1,7 +1,7 @@
 package com.pos.pos_backend.mapper;
 
-import com.pos.pos_backend.Dto.EmployeeDto;
-import com.pos.pos_backend.model.Employee;
+import com.pos.pos_backend.model.Dto.EmployeeDto;
+import com.pos.pos_backend.model.entity.Employee;
 
 public class EmployeeMapper {
     public static EmployeeDto mapToEmployeeDto(Employee employee){

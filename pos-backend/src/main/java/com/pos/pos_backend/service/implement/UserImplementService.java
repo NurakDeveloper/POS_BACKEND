@@ -1,8 +1,8 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.UserDTO;
+import com.pos.pos_backend.model.Dto.UserDTO;
 import com.pos.pos_backend.mapper.UserMapper;
-import com.pos.pos_backend.model.user.User;
+import com.pos.pos_backend.model.entity.user.User;
 import com.pos.pos_backend.repository.UserRepository;
 import com.pos.pos_backend.service.UserService;
 import lombok.AllArgsConstructor;

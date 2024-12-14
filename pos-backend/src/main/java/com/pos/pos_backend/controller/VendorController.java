@@ -1,6 +1,6 @@
 package com.pos.pos_backend.controller;
 
-import com.pos.pos_backend.Dto.VendorDto;
+import com.pos.pos_backend.model.Dto.VendorDto;
 import com.pos.pos_backend.service.VendorService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

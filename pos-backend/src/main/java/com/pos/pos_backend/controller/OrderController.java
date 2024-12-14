@@ -1,9 +1,9 @@
 package com.pos.pos_backend.controller;
 
-import com.pos.pos_backend.Dto.PaymentRequest;
-import com.pos.pos_backend.Dto.orderDto.OrderDto;
-import com.pos.pos_backend.Dto.orderDto.OrderRequest;
-import com.pos.pos_backend.enums.PaymentStatus;
+import com.pos.pos_backend.model.Dto.PaymentRequest;
+import com.pos.pos_backend.model.Dto.orderDto.OrderDto;
+import com.pos.pos_backend.model.Dto.orderDto.OrderRequest;
+import com.pos.pos_backend.model.enums.PaymentStatus;
 import com.pos.pos_backend.service.OrderService;
 import com.pos.pos_backend.service.OrderServiceMulti;
 import lombok.AllArgsConstructor;

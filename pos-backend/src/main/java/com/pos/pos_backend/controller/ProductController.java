@@ -1,14 +1,13 @@
 package com.pos.pos_backend.controller;
 
-import com.pos.pos_backend.Dto.ProductDto;
-import com.pos.pos_backend.Dto.procedure.ProductSold;
+import com.pos.pos_backend.model.Dto.ProductDto;
+import com.pos.pos_backend.model.Dto.procedure.ProductSold;
 import com.pos.pos_backend.repository.CustomizeRepository;
 import com.pos.pos_backend.service.ProductService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

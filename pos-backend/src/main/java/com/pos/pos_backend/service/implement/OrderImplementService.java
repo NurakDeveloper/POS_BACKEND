@@ -1,19 +1,16 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.orderDto.OrderLineDto;
-import com.pos.pos_backend.Dto.orderDto.OrderRequest;
+import com.pos.pos_backend.model.Dto.orderDto.OrderLineDto;
+import com.pos.pos_backend.model.Dto.orderDto.OrderRequest;
 import com.pos.pos_backend.mapper.orderMapper.OrderLineMapper;
 import com.pos.pos_backend.mapper.orderMapper.OrderMapper;
-import com.pos.pos_backend.model.order.Order;
-import com.pos.pos_backend.model.order.OrderLine;
+import com.pos.pos_backend.model.entity.order.Order;
 import com.pos.pos_backend.repository.OrderLineRepository;
 import com.pos.pos_backend.repository.OrderRepository;
 import com.pos.pos_backend.service.OrderServiceMulti;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

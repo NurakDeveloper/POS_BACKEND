@@ -1,8 +1,8 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.accounting.TransactionDto;
+import com.pos.pos_backend.model.Dto.accounting.TransactionDto;
 import com.pos.pos_backend.mapper.accounting.TransactionMapper;
-import com.pos.pos_backend.model.accounting.Transaction;
+import com.pos.pos_backend.model.entity.accounting.Transaction;
 import com.pos.pos_backend.repository.TransactionRepository;
 import com.pos.pos_backend.service.TransactionService;
 import lombok.AllArgsConstructor;

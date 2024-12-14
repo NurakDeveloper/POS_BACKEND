@@ -1,8 +1,8 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.CustomerDto;
+import com.pos.pos_backend.model.Dto.CustomerDto;
 import com.pos.pos_backend.mapper.CustomerMapper;
-import com.pos.pos_backend.model.Customer;
+import com.pos.pos_backend.model.entity.Customer;
 import com.pos.pos_backend.repository.CustomerRepository;
 import com.pos.pos_backend.service.CustomerService;
 import lombok.AllArgsConstructor;

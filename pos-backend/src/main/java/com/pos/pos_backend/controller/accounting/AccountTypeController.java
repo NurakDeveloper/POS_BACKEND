@@ -1,6 +1,6 @@
 package com.pos.pos_backend.controller.accounting;
 
-import com.pos.pos_backend.Dto.accounting.AccountTypeDto;
+import com.pos.pos_backend.model.Dto.accounting.AccountTypeDto;
 import com.pos.pos_backend.service.AccountTypeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

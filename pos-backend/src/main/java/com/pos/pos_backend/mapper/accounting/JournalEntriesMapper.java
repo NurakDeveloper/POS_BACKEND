@@ -1,7 +1,7 @@
 package com.pos.pos_backend.mapper.accounting;
 
-import com.pos.pos_backend.Dto.accounting.JournalEntriesDto;
-import com.pos.pos_backend.model.accounting.JournalEntries;
+import com.pos.pos_backend.model.Dto.accounting.JournalEntriesDto;
+import com.pos.pos_backend.model.entity.accounting.JournalEntries;
 
 public class JournalEntriesMapper {
     public static JournalEntriesDto maToJournalEntriesDto(JournalEntries j){

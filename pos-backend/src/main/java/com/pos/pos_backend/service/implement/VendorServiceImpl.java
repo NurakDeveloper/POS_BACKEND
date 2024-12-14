@@ -1,8 +1,8 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.VendorDto;
+import com.pos.pos_backend.model.Dto.VendorDto;
 import com.pos.pos_backend.mapper.VendorMapper;
-import com.pos.pos_backend.model.Vendor;
+import com.pos.pos_backend.model.entity.Vendor;
 import com.pos.pos_backend.repository.VendorRepository;
 import com.pos.pos_backend.service.VendorService;
 import lombok.AllArgsConstructor;
@@ -32,6 +32,7 @@ public class VendorServiceImpl implements VendorService {
         vendor.setPhone(vendorDTO.getPhone());
         vendor.setAddress(vendorDTO.getAddress());
         vendor.setActive(vendorDTO.getActive());
+        vendor.setImage(vendorDTO.getImage());
         Vendor updatedVendor = vendorRepository.save(vendor);
         return VendorMapper.toDTO(updatedVendor);
     }

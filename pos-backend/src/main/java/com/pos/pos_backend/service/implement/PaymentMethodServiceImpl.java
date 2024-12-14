@@ -1,8 +1,8 @@
 package com.pos.pos_backend.service.implement;
 
-import com.pos.pos_backend.Dto.PaymentMethodDto;
+import com.pos.pos_backend.model.Dto.PaymentMethodDto;
 import com.pos.pos_backend.mapper.PaymentMethodMapper;
-import com.pos.pos_backend.model.PaymentMethod;
+import com.pos.pos_backend.model.entity.PaymentMethod;
 import com.pos.pos_backend.repository.PaymentMethodRepository;
 import com.pos.pos_backend.service.PaymentMethodService;
 import org.springframework.stereotype.Service;

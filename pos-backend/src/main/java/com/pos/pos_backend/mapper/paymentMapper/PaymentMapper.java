@@ -1,7 +1,7 @@
 package com.pos.pos_backend.mapper.paymentMapper;
 
-import com.pos.pos_backend.Dto.paymentDto.PaymentDto;
-import com.pos.pos_backend.model.accounting.Payment;
+import com.pos.pos_backend.model.Dto.paymentDto.PaymentDto;
+import com.pos.pos_backend.model.entity.accounting.Payment;
 
 public class PaymentMapper {
 

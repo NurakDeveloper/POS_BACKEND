@@ -1,7 +1,7 @@
 package com.pos.pos_backend.controller;
 
-import com.pos.pos_backend.Dto.paymentDto.PaymentDto;
-import com.pos.pos_backend.model.order.Order;
+import com.pos.pos_backend.model.Dto.paymentDto.PaymentDto;
+import com.pos.pos_backend.model.entity.order.Order;
 import com.pos.pos_backend.repository.OrderRepository;
 import com.pos.pos_backend.service.PaymentService;
 import jakarta.validation.Valid;

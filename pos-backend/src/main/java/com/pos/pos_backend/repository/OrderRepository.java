@@ -1,6 +1,6 @@
 package com.pos.pos_backend.repository;
 
-import com.pos.pos_backend.model.order.Order;
+import com.pos.pos_backend.model.entity.order.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
