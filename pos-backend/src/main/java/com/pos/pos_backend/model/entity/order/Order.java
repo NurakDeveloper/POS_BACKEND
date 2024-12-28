@@ -29,6 +29,7 @@ public class Order {
     private Integer status;
     private Integer numberOfPeople;
     private Double totalAmount;
+    private Double totalDiscount ;
     private Double cash;
     private Double exchange;
     private Date orderDate;

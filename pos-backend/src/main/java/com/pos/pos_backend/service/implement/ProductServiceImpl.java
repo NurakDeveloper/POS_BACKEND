@@ -11,7 +11,11 @@ import com.pos.pos_backend.service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,9 +30,24 @@ public class ProductServiceImpl implements ProductService {
         Category category = categoryRepository.findById(productDto.getCategoryId())
                 .orElseThrow(() -> new ResourceNotFoundException("Category not found")); // Validate category exists
         Product product = ProductMapper.mapToProduct(productDto, category);
+        product.setProductCode(generateUniqueProductCode());
         Product savedProduct = productRepository.save(product);
         return ProductMapper.mapToProductDto(savedProduct);
     }
+    public static Long generateUniqueProductCode() {
+        // Format current date and time as "yyyyMMddHHmmss"
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+
+        // Generate a random number between 0 and 999 (3 digits)
+        int randomNum = ThreadLocalRandom.current().nextInt(100, 1000); // Ensures it's always 3 digits
+
+        // Combine the last 4 digits of the timestamp and the random number (to make 7 digits total)
+        String uniqueCodeString = timestamp.substring(timestamp.length() - 4) + randomNum;
+
+        // Convert the string to a Long
+        return Long.parseLong(uniqueCodeString);
+    }
+
 
     @Override
     public List<ProductDto> getAllProduct() {

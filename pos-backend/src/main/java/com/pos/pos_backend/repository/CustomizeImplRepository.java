@@ -79,4 +79,25 @@ public class CustomizeImplRepository implements CustomizeRepository {
         return query.getResultList();
     }
 
+    @Override
+    public List<ViewRevenuesByBranch> getViewRevenuesByBranch(Long branchId) {
+        Query query = entityManager.createNativeQuery("CALL getViewRevenue(:branchId)", "viewRevenuesByBranches");
+        query.setParameter("branchId" , branchId);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<ExpenseByBranches> getViewExpenseByBranch(Long branchId) {
+        Query query = entityManager.createNativeQuery("CALL getViewExpense(:branchId)", "viewExpenseByBranches");
+        query.setParameter("branchId" , branchId);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<ViewIncomeByBranch> getViewIncomeByBranch(Long branchId) {
+        Query query = entityManager.createNativeQuery("CALL getViewIncomeByBranch(:branchId)", "viewIncomeByBranches");
+        query.setParameter("branchId" , branchId);
+        return query.getResultList();
+    }
+
 }

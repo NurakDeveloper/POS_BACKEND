@@ -22,6 +22,7 @@ public class OrderMapper {
                 order.getStatus(),
                 order.getNumberOfPeople(),
                 order.getTotalAmount(),
+                order.getTotalDiscount(),
                 order.getCash(),
                 order.getExchange(),
                 order.getOrderDate(),
@@ -34,6 +35,7 @@ public class OrderMapper {
     public static Order mapToOrder(OrderDto orderDto) {
         Order order = new Order();
         order.setId(orderDto.getId());
+        order.setTotalDiscount(orderDto.getTotalDiscount());
         order.setInvoiceNumber(orderDto.getInvoiceNumber());
         order.setBranchId(orderDto.getBranchId());
         order.setOrderType(orderDto.getOrderType());
@@ -63,6 +65,7 @@ public class OrderMapper {
                 orderRequest.getStatus(),
                 orderRequest.getNumberOfPeople(),
                 orderRequest.getTotalAmount(),
+                orderRequest.getTotalDiscount(),
                 orderRequest.getCash(),
                 orderRequest.getExchange(),
                 orderRequest.getOrderDate(),
@@ -84,6 +87,7 @@ public class OrderMapper {
                 order.getStatus(),
                 order.getNumberOfPeople(),
                 order.getTotalAmount(),
+                order.getTotalDiscount(),
                 order.getCash(),
                 order.getCash() - order.getTotalAmount(), // Dynamically calculate exchange
                 order.getOrderDate(),

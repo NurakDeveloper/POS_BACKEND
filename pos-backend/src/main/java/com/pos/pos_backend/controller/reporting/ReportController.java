@@ -4,10 +4,7 @@ import com.pos.pos_backend.model.Dto.procedure.*;
 import com.pos.pos_backend.repository.CustomizeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -52,6 +49,18 @@ public class ReportController {
     @GetMapping("daily-sale")
     public ResponseEntity<List<DailySaleReporting>> getDailySaleReporting(){
         return ResponseEntity.ok(customizeRepository.getDailySaleReporting());
+    }
+    @GetMapping("revenues-branches/{id}")
+    public ResponseEntity<List<ViewRevenuesByBranch>> getRevenuesByBranch(@PathVariable("id") Long id){
+        return ResponseEntity.ok(customizeRepository.getViewRevenuesByBranch(id));
+    }
+    @GetMapping("expense-branches/{id}")
+    public ResponseEntity<List<ExpenseByBranches>> getExpenseByBranch(@PathVariable("id") Long id){
+        return ResponseEntity.ok(customizeRepository.getViewExpenseByBranch(id));
+    }
+    @GetMapping("income-branches/{id}")
+    public ResponseEntity<List<ViewIncomeByBranch>> getIncomeByBranch(@PathVariable("id") Long id){
+        return ResponseEntity.ok(customizeRepository.getViewIncomeByBranch(id));
     }
 
 

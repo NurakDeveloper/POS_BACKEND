@@ -20,6 +20,7 @@ public class Branch {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String branchName;
+    private Long managerId ;
     private String branchCode;
     private String addressLine1;
     private String addressLine2;
@@ -29,9 +30,9 @@ public class Branch {
     private String country;
     private String phoneNumber;
     private String email;
-    private String managerName;
     private Date establishedDate;
     private String status;
+    private String image ;
 
 
     // Getters and Setters

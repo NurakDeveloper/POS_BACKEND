@@ -7,6 +7,7 @@ import com.pos.pos_backend.authentication.util.JwtUtil;
 import com.pos.pos_backend.model.entity.user.User;
 import com.pos.pos_backend.model.entity.user.UserRequest;
 import com.pos.pos_backend.model.entity.user.UserRespone;
+import com.pos.pos_backend.repository.BranchRepository;
 import com.pos.pos_backend.repository.EmployeeRepository;
 import com.pos.pos_backend.repository.UserRepository;
 import com.pos.pos_backend.service.UserService;
@@ -32,6 +33,7 @@ public class AuthenticationController {
     private JwtUtil jwtUtil;
     private UserService userService;
    private EmployeeRepository employeeRepository;
+   private BranchRepository branchRepository ;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserRequest authRequest) {
@@ -68,6 +70,7 @@ public class AuthenticationController {
         // Build and return the response
         return new AuthenticationResponse(
                 token,
+                branchRepository.getBranch(employeeRepository.getEmployee(user.getEmployeeId()).getCompanyID()).getBranchName() ,
                 user.getUserId(),
                 user.getUsername(),
                 user.getRole(),

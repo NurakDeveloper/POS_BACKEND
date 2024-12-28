@@ -14,6 +14,7 @@ import java.util.Date;
 public class BranchDto {
     private Long id;
     private String branchName;
+    private Long managerId ;
     private String branchCode;
     private String addressLine1;
     private String addressLine2;
@@ -23,7 +24,7 @@ public class BranchDto {
     private String country;
     private String phoneNumber;
     private String email;
-    private String managerName;
     private Date establishedDate;
     private String status;
+    private String image ;
 }

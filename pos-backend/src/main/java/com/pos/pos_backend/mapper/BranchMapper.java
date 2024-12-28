@@ -9,6 +9,7 @@ public class BranchMapper {
         return new BranchDto(
                 branch.getId(),
                 branch.getBranchName(),
+                branch.getManagerId(),
                 branch.getBranchCode(),
                 branch.getAddressLine1(),
                 branch.getAddressLine2(),
@@ -18,9 +19,9 @@ public class BranchMapper {
                 branch.getCountry(),
                 branch.getPhoneNumber(),
                 branch.getEmail(),
-                branch.getManagerName(),
                 branch.getEstablishedDate(),
-                branch.getStatus()
+                branch.getStatus(),
+                branch.getImage()
 
         );
     }
@@ -28,6 +29,7 @@ public class BranchMapper {
         return new Branch(
                 branch.getId(),
                 branch.getBranchName(),
+                branch.getManagerId(),
                 branch.getBranchCode(),
                 branch.getAddressLine1(),
                 branch.getAddressLine2(),
@@ -37,9 +39,9 @@ public class BranchMapper {
                 branch.getCountry(),
                 branch.getPhoneNumber(),
                 branch.getEmail(),
-                branch.getManagerName(),
                 branch.getEstablishedDate(),
-                branch.getStatus()
+                branch.getStatus(),
+                branch.getImage()
 
         );
     }

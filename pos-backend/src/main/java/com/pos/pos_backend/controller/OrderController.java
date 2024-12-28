@@ -1,6 +1,7 @@
 package com.pos.pos_backend.controller;
 
 import com.pos.pos_backend.model.Dto.PaymentRequest;
+import com.pos.pos_backend.model.Dto.orderDto.InvoiceDto;
 import com.pos.pos_backend.model.Dto.orderDto.OrderDto;
 import com.pos.pos_backend.model.Dto.orderDto.OrderRequest;
 import com.pos.pos_backend.model.enums.PaymentStatus;
@@ -43,6 +44,47 @@ public class OrderController {
         // Process order
         try {
             OrderRequest processedOrder = orderServiceMulti.orderRequest(orderRequest);
+            return new ResponseEntity<>(processedOrder, HttpStatus.CREATED);
+        } catch (Exception e) {
+            // Handle unexpected errors gracefully
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("An error occurred while processing the order: " + e.getMessage());
+        }
+    }@PostMapping("sale")
+    public ResponseEntity<?> sale(@RequestBody OrderRequest orderRequest) {
+        // Validate if cash is sufficient
+        if (orderRequest.getCash() < orderRequest.getTotalAmount()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Insufficient cash provided!");
+        }
+
+        // Calculate exchange
+        orderRequest.setExchange(orderRequest.getCash() - orderRequest.getTotalAmount());
+
+        // Process order
+        try {
+            InvoiceDto processedOrder = orderServiceMulti.sale(orderRequest);
+            return new ResponseEntity<>(processedOrder, HttpStatus.CREATED);
+        } catch (Exception e) {
+            // Handle unexpected errors gracefully
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("An error occurred while processing the order: " + e.getMessage());
+        }
+    }
+    @PostMapping("update-multiple-items")
+    public ResponseEntity<?> postOrder(Long id , @RequestBody OrderRequest orderRequest) {
+        // Validate if cash is sufficient
+        if (orderRequest.getCash() < orderRequest.getTotalAmount()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Insufficient cash provided!");
+        }
+
+        // Calculate exchange
+        orderRequest.setExchange(orderRequest.getCash() - orderRequest.getTotalAmount());
+
+        // Process order
+        try {
+            OrderRequest processedOrder = orderServiceMulti.updateOrder(id , orderRequest);
             return new ResponseEntity<>(processedOrder, HttpStatus.CREATED);
         } catch (Exception e) {
             // Handle unexpected errors gracefully

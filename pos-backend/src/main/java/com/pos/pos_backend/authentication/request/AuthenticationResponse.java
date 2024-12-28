@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class AuthenticationResponse {
     private String token;
+    private String branchName ;
     private Long userId;
     private String username;
     private String role;

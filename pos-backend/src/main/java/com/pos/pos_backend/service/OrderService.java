@@ -1,6 +1,7 @@
     package com.pos.pos_backend.service;
 
     import com.pos.pos_backend.model.Dto.orderDto.OrderDto;
+    import com.pos.pos_backend.model.Dto.orderDto.OrderRequest;
     import com.pos.pos_backend.model.Dto.paymentDto.PaymentDto;
     import com.pos.pos_backend.model.enums.PaymentStatus;
 
@@ -12,6 +13,7 @@
         List<OrderDto> getAllOrder();
         OrderDto getOrderByID(Long orderId);
         Double totalOrderToday(Date date);
+
 
         PaymentDto addPayment(Long orderId, PaymentDto paymentDto);
 

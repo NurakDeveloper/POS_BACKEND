@@ -12,25 +12,8 @@ public class OrderRequest {
     public OrderRequest(){
 
     }
-    public OrderRequest(Long id, Long invoiceNumber, Long branchId, Long orderType, Long customerId, Long acceptedBy, Integer tableNumber, Integer status, Integer numberOfPeople, Double totalAmount, Double cash, Double exchange, Date orderDate, String description, String paymentStatus) {
-        this.id = id;
-        this.invoiceNumber = invoiceNumber;
-        this.branchId = branchId;
-        this.orderType = orderType;
-        this.customerId = customerId;
-        this.acceptedBy = acceptedBy;
-        this.tableNumber = tableNumber;
-        this.status = status;
-        this.numberOfPeople = numberOfPeople;
-        this.totalAmount = totalAmount;
-        this.cash = cash;
-        this.exchange = exchange;
-        this.orderDate = orderDate;
-        this.description = description;
-        this.paymentStatus = paymentStatus;
-    }
 
-    public OrderRequest(Long id, Long invoiceNumber, Long branchId, Long orderType, Long customerId, Long acceptedBy, Integer tableNumber, Integer status, Integer numberOfPeople, Double totalAmount, Double cash, Double exchange, Date orderDate, String description, String paymentStatus, List<OrderLineDto> orderLines) {
+    public OrderRequest(Long id, Long invoiceNumber, Long branchId, Long orderType, Long customerId, Long acceptedBy, Integer tableNumber, Integer status, Integer numberOfPeople, Double totalAmount, Double totalDiscount, Double cash, Double exchange, Date orderDate, String description, String paymentStatus, List<OrderLineDto> orderLines) {
         this.id = id;
         this.invoiceNumber = invoiceNumber;
         this.branchId = branchId;
@@ -41,12 +24,32 @@ public class OrderRequest {
         this.status = status;
         this.numberOfPeople = numberOfPeople;
         this.totalAmount = totalAmount;
+        this.totalDiscount = totalDiscount;
         this.cash = cash;
         this.exchange = exchange;
         this.orderDate = orderDate;
         this.description = description;
         this.paymentStatus = paymentStatus;
         this.orderLines = orderLines;
+    }
+
+    public OrderRequest(Long id, Long invoiceNumber, Long branchId, Long orderType, Long customerId, Long acceptedBy, Integer tableNumber, Integer status, Integer numberOfPeople, Double totalAmount, Double totalDiscount, Double cash, Double exchange, Date orderDate, String description, String paymentStatus) {
+        this.id = id;
+        this.invoiceNumber = invoiceNumber;
+        this.branchId = branchId;
+        this.orderType = orderType;
+        this.customerId = customerId;
+        this.acceptedBy = acceptedBy;
+        this.tableNumber = tableNumber;
+        this.status = status;
+        this.numberOfPeople = numberOfPeople;
+        this.totalAmount = totalAmount;
+        this.totalDiscount = totalDiscount;
+        this.cash = cash;
+        this.exchange = exchange;
+        this.orderDate = orderDate;
+        this.description = description;
+        this.paymentStatus = paymentStatus;
     }
 
     private Long id;
@@ -59,6 +62,7 @@ public class OrderRequest {
     private Integer status;
     private Integer numberOfPeople;
     private Double totalAmount;
+    private Double totalDiscount ;
     private Double cash;
     private Double exchange;
     private Date orderDate;

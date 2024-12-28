@@ -18,5 +18,8 @@ public interface CustomizeRepository {
     List<BestSellerDailyProduct> getBestSellerProductDailyReporting();
     List<MonthlySaleReporting> getMonthlySaleReporting();
     List<DailySaleReporting> getDailySaleReporting();
+    List<ViewRevenuesByBranch> getViewRevenuesByBranch(Long branchId);
+    List<ExpenseByBranches> getViewExpenseByBranch(Long branchId);
+    List<ViewIncomeByBranch> getViewIncomeByBranch(Long branchId);
 
 }
