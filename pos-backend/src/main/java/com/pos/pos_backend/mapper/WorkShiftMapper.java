@@ -7,7 +7,9 @@ public class WorkShiftMapper {
     public static WorkShift toModel(WorkShiftDTO dto) {
         WorkShift workShift = new WorkShift();
         workShift.setId(dto.getId());
-        workShift.setShiftName(dto.getShiftName());
+        workShift.setEmployeeId(dto.getEmployeeId());
+        workShift.setShift(dto.getShift());
+        workShift.setBranchId(dto.getBranchId());
         workShift.setStartTime(dto.getStartTime());
         workShift.setEndTime(dto.getEndTime());
         workShift.setDescription(dto.getDescription());
@@ -17,7 +19,9 @@ public class WorkShiftMapper {
     public static WorkShiftDTO toDTO(WorkShift workShift) {
         WorkShiftDTO dto = new WorkShiftDTO();
         dto.setId(workShift.getId());
-        dto.setShiftName(workShift.getShiftName());
+        dto.setEmployeeId(workShift.getEmployeeId());
+        dto.setShift(workShift.getShift());
+        dto.setBranchId(workShift.getBranchId());
         dto.setStartTime(workShift.getStartTime());
         dto.setEndTime(workShift.getEndTime());
         dto.setDescription(workShift.getDescription());

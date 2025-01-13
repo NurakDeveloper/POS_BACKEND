@@ -18,8 +18,9 @@ public class WorkShift {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String shiftName;
+    private Long employeeId ;
+    private Long branchId ;
+    private String shift ;
 
     @Column(nullable = false)
     private LocalTime startTime;

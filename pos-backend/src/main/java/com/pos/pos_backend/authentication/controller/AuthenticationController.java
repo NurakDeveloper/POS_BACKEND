@@ -90,4 +90,16 @@ public class AuthenticationController {
     public ResponseEntity<?> getUserByEmployee(@PathVariable("id") Long employeeId){
         return ResponseEntity.ok(userService.listUserByEmployeeId(employeeId));
     }
+
+    @PutMapping("update/{id}")
+    @PreAuthorize("hasAuthority('admin:update')")
+    public ResponseEntity<?> updateUserById(@PathVariable("id")  Long id , @RequestBody UserDTO userDTO){
+        return ResponseEntity.ok(userService.updateUserById(id , userDTO));
+    }
+    @DeleteMapping("remove/{id}")
+    @PreAuthorize("hasAuthority('admin:delete')")
+    public ResponseEntity<?> removeUserById(@PathVariable("id") Long id){
+        userService.removeUser(id);
+        return ResponseEntity.ok("User" + id + "has been deleted");
+    }
 }

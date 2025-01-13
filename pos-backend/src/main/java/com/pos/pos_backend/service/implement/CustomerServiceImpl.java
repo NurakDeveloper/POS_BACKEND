@@ -39,6 +39,7 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setJoinDate(customerDto.getJoinDate());
         customer.setMembershipStatus(customerDto.getMembershipStatus());
         customer.setStatus(customerDto.getStatus());
+        customer.setImage(customerDto.getImage());
         return CustomerMapper.mapToCustomerDto(customerRepository.save(customer));
     }
 

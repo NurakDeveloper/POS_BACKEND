@@ -2,10 +2,12 @@ package com.pos.pos_backend.controller;
 
 import com.pos.pos_backend.model.Dto.FileCopyRequest;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -98,6 +100,29 @@ public class ImageController {
             // Load the file as a resource
             Resource resource = new UrlResource(filePath.toUri());
             return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
+                    .body(resource);
+
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(null);
+        }
+    }
+    @GetMapping("/pdf/{filename:.+}")
+    public ResponseEntity<Resource> getPdf(@PathVariable String filename) throws IOException {
+        try {
+            // Get the PDF from the upload directory
+            Path filePath = Paths.get(uploadDir).resolve(filename).normalize();
+
+            // Check if the file exists
+            if (!Files.exists(filePath)) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            }
+
+            // Load the PDF as a resource
+            Resource resource = new UrlResource(filePath.toUri());
+            return ResponseEntity.ok()
+                    .contentType(MediaType.APPLICATION_PDF)
                     .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
                     .body(resource);
 

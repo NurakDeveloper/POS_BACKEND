@@ -11,7 +11,9 @@ import java.time.LocalTime;
 @NoArgsConstructor
 public class WorkShiftDTO {
     private Long id;
-    private String shiftName;
+    private Long employeeId ;
+    private Long branchId ;
+    private String shift ;
     private LocalTime startTime;
     private LocalTime endTime;
     private String description;

@@ -28,7 +28,7 @@ public class BranchController {
     }
 
     // Get a branch by ID
-    @PreAuthorize("hasAuthority('admin:get')")
+//    @PreAuthorize("hasAuthority('admin:get' , 'manager:get')")
     @GetMapping("get/{id}")
     public ResponseEntity<BranchDto> getBranchById(@PathVariable Long id) {
         BranchDto branchDto = branchService.getBranchById(id);
@@ -36,7 +36,7 @@ public class BranchController {
     }
 
     // Get all branches
-    @PreAuthorize("hasAuthority('admin:get')")
+//    @PreAuthorize("hasAuthority('admin:get')")
     @GetMapping("list-branch")
     public ResponseEntity<List<BranchDto>> getAllBranches() {
         List<BranchDto> branches = branchService.getAllBranches();

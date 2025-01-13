@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +22,8 @@ public class UserImplementService implements UserService {
     public UserDTO createNewUser(UserDTO userDTO) {
         User user = UserMapper.mapToUser(userDTO);
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        user.setCreatedDate(new Date());
+        user.setUpdatedDate(null);
         User saveUser = userRepository.save(user);
         return UserMapper.mapToUserDto(saveUser);
     }
@@ -34,6 +37,15 @@ public class UserImplementService implements UserService {
 
     @Override
     public void removeUser(Long id) {
+        userRepository.deleteById(id);
+    }
 
+    @Override
+    public UserDTO updateUserById(Long id , UserDTO userDTO) {
+        User user = userRepository.findById(id).orElseThrow();
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        user.setUpdatedDate(new Date());
+        User saveUser = userRepository.save(user);
+        return UserMapper.mapToUserDto(saveUser);
     }
 }

@@ -9,5 +9,6 @@ public interface UserService {
     UserDTO createNewUser(UserDTO userDTO);
     List<UserDTO> listUserByEmployeeId(Long employeeId);
     void removeUser(Long id);
+    UserDTO updateUserById(Long id , UserDTO userDTO);
 
 }

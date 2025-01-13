@@ -21,14 +21,21 @@ public class WorkShiftImplement implements WorkShiftService {
     }
 
     @Override
-    public WorkShiftDTO updateWorkShift(Long id, WorkShiftDTO workShiftDTO) {
-        WorkShift existingWorkShift = workShiftRepository.findById(id)
+    public WorkShiftDTO updateWorkShift(Long id, WorkShiftDTO dto) {
+        WorkShift workShift = workShiftRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("WorkShift not found with id: " + id));
-        existingWorkShift.setShiftName(workShiftDTO.getShiftName());
-        existingWorkShift.setStartTime(workShiftDTO.getStartTime());
-        existingWorkShift.setEndTime(workShiftDTO.getEndTime());
-        existingWorkShift.setDescription(workShiftDTO.getDescription());
-        return WorkShiftMapper.toDTO(workShiftRepository.save(existingWorkShift));
+
+//        existingWorkShift.setStartTime(workShiftDTO.getStartTime());
+//        existingWorkShift.setEndTime(workShiftDTO.getEndTime());
+//        existingWorkShift.setDescription(workShiftDTO.getDescription());
+
+        workShift.setEmployeeId(dto.getEmployeeId());
+        workShift.setShift(dto.getShift());
+        workShift.setBranchId(dto.getBranchId());
+        workShift.setStartTime(dto.getStartTime());
+        workShift.setEndTime(dto.getEndTime());
+        workShift.setDescription(dto.getDescription());
+        return WorkShiftMapper.toDTO(workShiftRepository.save(workShift));
     }
 
     @Override
